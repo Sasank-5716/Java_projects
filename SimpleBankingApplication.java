@@ -56,4 +56,20 @@ public class SimpleBankingApplication {
         System.out.println("\nAccount created successfully!");
         System.out.println("Account Number: " + accountNumber);
     }
+
+    private static void deposit() {
+        BankAccount account = getAccount();
+        if (account == null) return;
+        
+        System.out.print("Enter deposit amount: ");
+        double amount = scanner.nextDouble();
+        
+        if (amount <= 0) {
+            System.out.println("Invalid amount");
+            return;
+        }
+        
+        account.deposit(amount);
+        System.out.printf("Deposited $%.2f. New balance: $%.2f%n", amount, account.getBalance());
+    }
 }
