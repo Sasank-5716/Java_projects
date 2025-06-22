@@ -72,4 +72,39 @@ public class SimpleBankingApplication {
         account.deposit(amount);
         System.out.printf("Deposited $%.2f. New balance: $%.2f%n", amount, account.getBalance());
     }
+
+    class BankAccount {
+    private final String accountNumber;
+    private final String accountHolderName;
+    private double balance;
+
+    public BankAccount(String accountNumber, String accountHolderName, double balance) {
+        this.accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+        this.balance = balance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    public boolean withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            return true;
+        }
+        return false;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getAccountHolderName() {
+        return accountHolderName;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
 }
