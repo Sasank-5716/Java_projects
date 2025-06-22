@@ -38,4 +38,22 @@ public class SimpleBankingApplication {
         System.out.println("╚══════════════════════════╝");
         System.out.print("Enter your choice: ");
     }
+
+    private static void createAccount() {
+        System.out.print("\nEnter account holder name: ");
+        String name = scanner.nextLine();
+        
+        System.out.print("Enter initial deposit: ");
+        double balance = scanner.nextDouble();
+        
+        if (balance < 100) {
+            System.out.println("Minimum initial deposit is $100");
+            return;
+        }
+        
+        String accountNumber = "ACCT" + (1000 + accounts.size());
+        accounts.add(new BankAccount(accountNumber, name, balance));
+        System.out.println("\nAccount created successfully!");
+        System.out.println("Account Number: " + accountNumber);
+    }
 }
