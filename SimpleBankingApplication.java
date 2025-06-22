@@ -10,7 +10,7 @@ public class SimpleBankingApplication {
         while (true) {
             displayMenu();
             int choice = scanner.nextInt();
-            scanner.nextLine();  // Consume newline
+            scanner.nextLine(); 
             
             switch (choice) {
                 case 1: createAccount(); break;
@@ -24,5 +24,18 @@ public class SimpleBankingApplication {
                     System.out.println("Invalid choice. Please try again.");
             }
         }
+    }
+
+     private static void displayMenu() {
+        System.out.println("\n╔══════════════════════════╗");
+        System.out.println("║   BANKING APPLICATION    ║");
+        System.out.println("╠══════════════════════════╣");
+        System.out.println("║ 1. Create Account        ║");
+        System.out.println("║ 2. Deposit Funds         ║");
+        System.out.println("║ 3. Withdraw Funds        ║");
+        System.out.println("║ 4. View Account          ║");
+        System.out.println("║ 5. Exit                  ║");
+        System.out.println("╚══════════════════════════╝");
+        System.out.print("Enter your choice: ");
     }
 }
