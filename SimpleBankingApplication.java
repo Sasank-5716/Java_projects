@@ -92,6 +92,19 @@ public class SimpleBankingApplication {
         }
     }
 
+      private static BankAccount getAccount() {
+        System.out.print("Enter account number: ");
+        String acctNumber = scanner.nextLine();
+        
+        for (BankAccount acc : accounts) {
+            if (acc.getAccountNumber().equals(acctNumber)) {
+                return acc;
+            }
+        }
+       
+    }
+}
+
     class BankAccount {
     private final String accountNumber;
     private final String accountHolderName;
