@@ -10,23 +10,31 @@ public class SimpleBankingApplication {
         while (true) {
             displayMenu();
             int choice = scanner.nextInt();
-            scanner.nextLine(); 
-            
+            scanner.nextLine();
+
             switch (choice) {
-                case 1: createAccount(); break;
-                case 2: deposit(); break;
-                case 3: withdraw(); break;
-                case 4: displayAccount(); break;
-                case 5: 
+                case 1:
+                    createAccount();
+                    break;
+                case 2:
+                    deposit();
+                    break;
+                case 3:
+                    withdraw();
+                    break;
+                case 4:
+                    displayAccount();
+                    break;
+                case 5:
                     System.out.println("\nExiting application...");
                     System.exit(0);
-                default: 
+                default:
                     System.out.println("Invalid choice. Please try again.");
             }
         }
     }
 
-     private static void displayMenu() {
+    private static void displayMenu() {
         System.out.println("\n╔══════════════════════════╗");
         System.out.println("║   BANKING APPLICATION    ║");
         System.out.println("╠══════════════════════════╣");
@@ -42,15 +50,15 @@ public class SimpleBankingApplication {
     private static void createAccount() {
         System.out.print("\nEnter account holder name: ");
         String name = scanner.nextLine();
-        
+
         System.out.print("Enter initial deposit: ");
         double balance = scanner.nextDouble();
-        
+
         if (balance < 100) {
             System.out.println("Minimum initial deposit is $100");
             return;
         }
-        
+
         String accountNumber = "ACCT" + (1000 + accounts.size());
         accounts.add(new BankAccount(accountNumber, name, balance));
         System.out.println("\nAccount created successfully!");
@@ -59,24 +67,26 @@ public class SimpleBankingApplication {
 
     private static void deposit() {
         BankAccount account = getAccount();
-        if (account == null) return;
-        
+        if (account == null)
+            return;
+
         System.out.print("Enter deposit amount: ");
         double amount = scanner.nextDouble();
-        
+
         if (amount <= 0) {
             System.out.println("Invalid amount");
             return;
         }
-        
+
         account.deposit(amount);
         System.out.printf("Deposited $%.2f. New balance: $%.2f%n", amount, account.getBalance());
     }
 
     private static void withdraw() {
         BankAccount account = getAccount();
-        if (account == null) return;
-        
+        if (account == null)
+            return;
+
         System.out.print("Enter withdrawal amount: ");
         double amount = scanner.nextDouble();
 
@@ -84,7 +94,7 @@ public class SimpleBankingApplication {
             System.out.println("Invalid amount");
             return;
         }
-        
+
         if (account.withdraw(amount)) {
             System.out.printf("Withdrew $%.2f. New balance: $%.2f%n", amount, account.getBalance());
         } else {
@@ -92,20 +102,21 @@ public class SimpleBankingApplication {
         }
     }
 
-      private static BankAccount getAccount() {
+    private static BankAccount getAccount() {
         System.out.print("Enter account number: ");
         String acctNumber = scanner.nextLine();
-        
+
         for (BankAccount acc : accounts) {
             if (acc.getAccountNumber().equals(acctNumber)) {
                 return acc;
             }
         }
-       
+        System.out.println("Account not found");
+        return null;
     }
 }
 
-    class BankAccount {
+class BankAccount {
     private final String accountNumber;
     private final String accountHolderName;
     private double balance;
