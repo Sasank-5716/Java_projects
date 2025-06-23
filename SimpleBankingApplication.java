@@ -73,6 +73,14 @@ public class SimpleBankingApplication {
         System.out.printf("Deposited $%.2f. New balance: $%.2f%n", amount, account.getBalance());
     }
 
+    private static void withdraw() {
+        BankAccount account = getAccount();
+        if (account == null) return;
+        
+        System.out.print("Enter withdrawal amount: ");
+        double amount = scanner.nextDouble();
+    }
+
     class BankAccount {
     private final String accountNumber;
     private final String accountHolderName;
