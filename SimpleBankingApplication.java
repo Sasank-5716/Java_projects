@@ -79,6 +79,17 @@ public class SimpleBankingApplication {
         
         System.out.print("Enter withdrawal amount: ");
         double amount = scanner.nextDouble();
+
+        if (amount <= 0) {
+            System.out.println("Invalid amount");
+            return;
+        }
+        
+        if (account.withdraw(amount)) {
+            System.out.printf("Withdrew $%.2f. New balance: $%.2f%n", amount, account.getBalance());
+        } else {
+            System.out.println("Insufficient funds");
+        }
     }
 
     class BankAccount {
