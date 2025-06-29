@@ -37,6 +37,10 @@ class Member {
         this.name = name;
         this.contact = contact;
     }
+     // Getters
+    public String getId() { return id; }
+    public String getName() { return name; }
+    public String getContact() { return contact; }
 }
 
 public class libraryManagementSystem {
