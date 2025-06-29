@@ -43,6 +43,16 @@ class Member {
     public String getContact() { return contact; }
 }
 
+// Transaction class
+class Transaction {
+    private String bookId;
+    private String memberId;
+    private Date issueDate;
+    private Date dueDate;
+    private Date returnDate;
+    private double fine;
+}
+
 public class libraryManagementSystem {
     
 }
