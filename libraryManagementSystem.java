@@ -26,6 +26,19 @@ class Book {
     public void setAvailable(boolean available) { this.available = available; }
 }
 
+// Member class
+class Member {
+    private String id;
+    private String name;
+    private String contact;
+
+    public Member(String id, String name, String contact) {
+        this.id = id;
+        this.name = name;
+        this.contact = contact;
+    }
+}
+
 public class libraryManagementSystem {
     
 }
