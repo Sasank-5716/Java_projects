@@ -82,6 +82,15 @@ class Transaction {
         this.issueDate = issueDate;
         this.dueDate = dueDate;
     }
+    // Getters and setters
+    public String getBookId() { return bookId; }
+    public String getMemberId() { return memberId; }
+    public Date getIssueDate() { return issueDate; }
+    public Date getDueDate() { return dueDate; }
+    public Date getReturnDate() { return returnDate; }
+    public double getFine() { return fine; }
+    public void setReturnDate(Date returnDate) { this.returnDate = returnDate; }
+    public void setFine(double fine) { this.fine = fine; }
 }
 
 public class libraryManagementSystem {
