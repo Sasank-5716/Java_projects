@@ -18,12 +18,27 @@ class Book {
         this.author = author;
         this.available = true;
     }
+
     // Getters and setters
-    public String getId() { return id; }
-    public String getTitle() { return title; }
-    public String getAuthor() { return author; }
-    public boolean isAvailable() { return available; }
-    public void setAvailable(boolean available) { this.available = available; }
+    public String getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
 }
 
 // Member class
@@ -37,10 +52,19 @@ class Member {
         this.name = name;
         this.contact = contact;
     }
-     // Getters
-    public String getId() { return id; }
-    public String getName() { return name; }
-    public String getContact() { return contact; }
+
+    // Getters
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getContact() {
+        return contact;
+    }
 }
 
 // Transaction class
@@ -51,8 +75,15 @@ class Transaction {
     private Date dueDate;
     private Date returnDate;
     private double fine;
+
+    public Transaction(String bookId, String memberId, Date issueDate, Date dueDate) {
+        this.bookId = bookId;
+        this.memberId = memberId;
+        this.issueDate = issueDate;
+        this.dueDate = dueDate;
+    }
 }
 
 public class libraryManagementSystem {
-    
+
 }
