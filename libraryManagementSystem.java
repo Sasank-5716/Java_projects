@@ -128,5 +128,17 @@ public class libraryManagementSystem {
             add(passwordField);
             add(new JLabel());
             add(loginButton);
-        }}
-}
+
+            loginButton.addActionListener(e -> {
+                String username = usernameField.getText();
+                String password = new String(passwordField.getPassword());
+                
+                if ("admin".equals(username) && "admin".equals(password)) {
+                    new MainFrame().setVisible(true);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Invalid credentials!");
+                }
+            });
+        }
+}}
