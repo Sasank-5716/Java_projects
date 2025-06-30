@@ -94,5 +94,8 @@ class Transaction {
 }
 
 public class libraryManagementSystem {
-
+    private static HashMap<String, Book> books = new HashMap<>();
+    private static HashMap<String, Member> members = new HashMap<>();
+    private static ArrayList<Transaction> transactions = new ArrayList<>();
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 }
