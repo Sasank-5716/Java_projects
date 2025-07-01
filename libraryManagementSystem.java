@@ -230,6 +230,11 @@ public class libraryManagementSystem {
             add(inputPanel, BorderLayout.NORTH);
             add(scrollPane, BorderLayout.CENTER);
             
-           
+            // Button actions
+            addButton.addActionListener(e -> addBook());
+            removeButton.addActionListener(e -> removeBook());
+            
+            // Display initial books
+            displayBooks();
         }
 }
