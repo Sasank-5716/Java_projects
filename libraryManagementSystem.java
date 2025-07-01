@@ -82,15 +82,39 @@ class Transaction {
         this.issueDate = issueDate;
         this.dueDate = dueDate;
     }
+
     // Getters and setters
-    public String getBookId() { return bookId; }
-    public String getMemberId() { return memberId; }
-    public Date getIssueDate() { return issueDate; }
-    public Date getDueDate() { return dueDate; }
-    public Date getReturnDate() { return returnDate; }
-    public double getFine() { return fine; }
-    public void setReturnDate(Date returnDate) { this.returnDate = returnDate; }
-    public void setFine(double fine) { this.fine = fine; }
+    public String getBookId() {
+        return bookId;
+    }
+
+    public String getMemberId() {
+        return memberId;
+    }
+
+    public Date getIssueDate() {
+        return issueDate;
+    }
+
+    public Date getDueDate() {
+        return dueDate;
+    }
+
+    public Date getReturnDate() {
+        return returnDate;
+    }
+
+    public double getFine() {
+        return fine;
+    }
+
+    public void setReturnDate(Date returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public void setFine(double fine) {
+        this.fine = fine;
+    }
 }
 
 public class libraryManagementSystem {
@@ -104,7 +128,7 @@ public class libraryManagementSystem {
         new LoginFrame().setVisible(true);
     }
 
-     // Login Frame
+    // Login Frame
     static class LoginFrame extends JFrame {
         private JTextField usernameField;
         private JPasswordField passwordField;
@@ -132,7 +156,7 @@ public class libraryManagementSystem {
             loginButton.addActionListener(e -> {
                 String username = usernameField.getText();
                 String password = new String(passwordField.getPassword());
-                
+
                 if ("admin".equals(username) && "admin".equals(password)) {
                     new MainFrame().setVisible(true);
                     dispose();
@@ -140,9 +164,10 @@ public class libraryManagementSystem {
                     JOptionPane.showMessageDialog(this, "Invalid credentials!");
                 }
             });
-        }}
+        }
+    }
 
-        // Main Application Frame
+    // Main Application Frame
     static class MainFrame extends JFrame {
         public MainFrame() {
             setTitle("Library Management System");
@@ -151,16 +176,28 @@ public class libraryManagementSystem {
             setLayout(new BorderLayout());
             setLocationRelativeTo(null);
 
-             // Create tabbed pane
+            // Create tabbed pane
             JTabbedPane tabbedPane = new JTabbedPane();
-            
+
             // Add tabs
             tabbedPane.addTab("Books", new BookPanel());
             tabbedPane.addTab("Members", new MemberPanel());
             tabbedPane.addTab("Transactions", new TransactionPanel());
-            
+
             add(tabbedPane, BorderLayout.CENTER);
-           
+
         }
-    
-}}
+
+    }
+
+    // Book Management Panel
+    static class BookPanel extends JPanel {
+        private JTextField idField, titleField, authorField;
+        private JTextArea outputArea;
+
+        public BookPanel() {
+            setLayout(new BorderLayout(10, 10));
+            
+            
+        }
+}
