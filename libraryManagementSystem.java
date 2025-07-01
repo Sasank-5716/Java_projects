@@ -198,6 +198,29 @@ public class libraryManagementSystem {
         public BookPanel() {
             setLayout(new BorderLayout(10, 10));
             
+            // Input panel
+            JPanel inputPanel = new JPanel(new GridLayout(4, 2, 5, 5));
+            idField = new JTextField();
+            titleField = new JTextField();
+            authorField = new JTextField();
+            
+            inputPanel.add(new JLabel("Book ID:"));
+            inputPanel.add(idField);
+            inputPanel.add(new JLabel("Title:"));
+            inputPanel.add(titleField);
+            inputPanel.add(new JLabel("Author:"));
+            inputPanel.add(authorField);
+            
+            JButton addButton = new JButton("Add Book");
+            JButton removeButton = new JButton("Remove Book");
+            
+            JPanel buttonPanel = new JPanel(new FlowLayout());
+            buttonPanel.add(addButton);
+            buttonPanel.add(removeButton);
+            
+            inputPanel.add(addButton);
+            inputPanel.add(removeButton);
+            
             
         }
 }
