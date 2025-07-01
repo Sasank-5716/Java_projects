@@ -237,4 +237,24 @@ public class libraryManagementSystem {
             // Display initial books
             displayBooks();
         }
+
+        private void addMember() {
+            String id = idField.getText();
+            String name = nameField.getText();
+            String contact = contactField.getText();
+            
+            if (id.isEmpty() || name.isEmpty() || contact.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "All fields are required!");
+                return;
+            }
+            
+            if (members.containsKey(id)) {
+                JOptionPane.showMessageDialog(this, "Member ID already exists!");
+                return;
+            }
+            
+            members.put(id, new Member(id, name, contact));
+            displayMembers();
+            clearFields();
+        }
 }
