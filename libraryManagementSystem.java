@@ -221,6 +221,15 @@ public class libraryManagementSystem {
             inputPanel.add(addButton);
             inputPanel.add(removeButton);
             
+            // Output area
+            outputArea = new JTextArea(15, 50);
+            outputArea.setEditable(false);
+            JScrollPane scrollPane = new JScrollPane(outputArea);
             
+            // Add components
+            add(inputPanel, BorderLayout.NORTH);
+            add(scrollPane, BorderLayout.CENTER);
+            
+           
         }
 }
