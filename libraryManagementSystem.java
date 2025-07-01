@@ -140,5 +140,18 @@ public class libraryManagementSystem {
                     JOptionPane.showMessageDialog(this, "Invalid credentials!");
                 }
             });
+        }}
+
+        // Main Application Frame
+    static class MainFrame extends JFrame {
+        public MainFrame() {
+            setTitle("Library Management System");
+            setSize(800, 600);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setLayout(new BorderLayout());
+            setLocationRelativeTo(null);
+
+           
         }
+    
 }}
