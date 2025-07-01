@@ -151,6 +151,15 @@ public class libraryManagementSystem {
             setLayout(new BorderLayout());
             setLocationRelativeTo(null);
 
+             // Create tabbed pane
+            JTabbedPane tabbedPane = new JTabbedPane();
+            
+            // Add tabs
+            tabbedPane.addTab("Books", new BookPanel());
+            tabbedPane.addTab("Members", new MemberPanel());
+            tabbedPane.addTab("Transactions", new TransactionPanel());
+            
+            add(tabbedPane, BorderLayout.CENTER);
            
         }
     
