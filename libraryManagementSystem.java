@@ -275,4 +275,17 @@ public class libraryManagementSystem {
             displayMembers();
             clearFields();
         }
+
+         private void displayMembers() {
+            StringBuilder sb = new StringBuilder("Registered Members:\n");
+            sb.append("ID\tName\tContact\n");
+            
+            for (Member member : members.values()) {
+                sb.append(member.getId()).append("\t")
+                  .append(member.getName()).append("\t")
+                  .append(member.getContact()).append("\n");
+            }
+            
+            outputArea.setText(sb.toString());
+        }
 }
