@@ -294,3 +294,11 @@ public class libraryManagementSystem {
             contactField.setText("");
         }
 }
+
+// Transaction Management Panel
+    static class TransactionPanel extends JPanel {
+        private JTextField bookIdField, memberIdField;
+        private JTextArea outputArea;
+        private JButton issueButton, returnButton;
+    }
+}
