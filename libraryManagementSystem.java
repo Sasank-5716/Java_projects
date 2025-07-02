@@ -300,5 +300,29 @@ public class libraryManagementSystem {
         private JTextField bookIdField, memberIdField;
         private JTextArea outputArea;
         private JButton issueButton, returnButton;
+
+         public TransactionPanel() {
+            setLayout(new BorderLayout(10, 10));
+            
+            // Input panel
+            JPanel inputPanel = new JPanel(new GridLayout(3, 2, 5, 5));
+            bookIdField = new JTextField();
+            memberIdField = new JTextField();
+            
+            inputPanel.add(new JLabel("Book ID:"));
+            inputPanel.add(bookIdField);
+            inputPanel.add(new JLabel("Member ID:"));
+            inputPanel.add(memberIdField);
+            
+            issueButton = new JButton("Issue Book");
+            returnButton = new JButton("Return Book");
+            
+            JPanel buttonPanel = new JPanel(new FlowLayout());
+            buttonPanel.add(issueButton);
+            buttonPanel.add(returnButton);
+            
+            inputPanel.add(issueButton);
+            inputPanel.add(returnButton);
+         }
     }
 }
