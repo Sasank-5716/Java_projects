@@ -261,7 +261,15 @@ public class libraryManagementSystem {
          private void removeMember() {
             String id = idField.getText();
             
+            if (id.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Member ID is required!");
+                return;
+            }
             
+            if (!members.containsKey(id)) {
+                JOptionPane.showMessageDialog(this, "Member not found!");
+                return;
+            }
             
             members.remove(id);
             displayMembers();
