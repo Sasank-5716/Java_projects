@@ -257,4 +257,14 @@ public class libraryManagementSystem {
             displayMembers();
             clearFields();
         }
+
+         private void removeMember() {
+            String id = idField.getText();
+            
+            
+            
+            members.remove(id);
+            displayMembers();
+            clearFields();
+        }
 }
