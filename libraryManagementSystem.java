@@ -288,4 +288,9 @@ public class libraryManagementSystem {
             
             outputArea.setText(sb.toString());
         }
+        private void clearFields() {
+            idField.setText("");
+            nameField.setText("");
+            contactField.setText("");
+        }
 }
