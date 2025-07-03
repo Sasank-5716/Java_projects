@@ -197,43 +197,43 @@ public class libraryManagementSystem {
 
         public BookPanel() {
             setLayout(new BorderLayout(10, 10));
-            
+
             // Input panel
             JPanel inputPanel = new JPanel(new GridLayout(4, 2, 5, 5));
             idField = new JTextField();
             titleField = new JTextField();
             authorField = new JTextField();
-            
+
             inputPanel.add(new JLabel("Book ID:"));
             inputPanel.add(idField);
             inputPanel.add(new JLabel("Title:"));
             inputPanel.add(titleField);
             inputPanel.add(new JLabel("Author:"));
             inputPanel.add(authorField);
-            
+
             JButton addButton = new JButton("Add Book");
             JButton removeButton = new JButton("Remove Book");
-            
+
             JPanel buttonPanel = new JPanel(new FlowLayout());
             buttonPanel.add(addButton);
             buttonPanel.add(removeButton);
-            
+
             inputPanel.add(addButton);
             inputPanel.add(removeButton);
-            
+
             // Output area
             outputArea = new JTextArea(15, 50);
             outputArea.setEditable(false);
             JScrollPane scrollPane = new JScrollPane(outputArea);
-            
+
             // Add components
             add(inputPanel, BorderLayout.NORTH);
             add(scrollPane, BorderLayout.CENTER);
-            
+
             // Button actions
             addButton.addActionListener(e -> addBook());
             removeButton.addActionListener(e -> removeBook());
-            
+
             // Display initial books
             displayBooks();
         }
@@ -242,85 +242,86 @@ public class libraryManagementSystem {
             String id = idField.getText();
             String name = nameField.getText();
             String contact = contactField.getText();
-            
+
             if (id.isEmpty() || name.isEmpty() || contact.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "All fields are required!");
                 return;
             }
-            
+
             if (members.containsKey(id)) {
                 JOptionPane.showMessageDialog(this, "Member ID already exists!");
                 return;
             }
-            
+
             members.put(id, new Member(id, name, contact));
             displayMembers();
             clearFields();
         }
 
-         private void removeMember() {
+        private void removeMember() {
             String id = idField.getText();
-            
+
             if (id.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Member ID is required!");
                 return;
             }
-            
+
             if (!members.containsKey(id)) {
                 JOptionPane.showMessageDialog(this, "Member not found!");
                 return;
             }
-            
+
             members.remove(id);
             displayMembers();
             clearFields();
         }
 
-         private void displayMembers() {
+        private void displayMembers() {
             StringBuilder sb = new StringBuilder("Registered Members:\n");
             sb.append("ID\tName\tContact\n");
-            
+
             for (Member member : members.values()) {
                 sb.append(member.getId()).append("\t")
-                  .append(member.getName()).append("\t")
-                  .append(member.getContact()).append("\n");
+                        .append(member.getName()).append("\t")
+                        .append(member.getContact()).append("\n");
             }
-            
+
             outputArea.setText(sb.toString());
         }
+
         private void clearFields() {
             idField.setText("");
             nameField.setText("");
             contactField.setText("");
         }
-}
+    }
 
-// Transaction Management Panel
+    // Transaction Management Panel
     static class TransactionPanel extends JPanel {
         private JTextField bookIdField, memberIdField;
         private JTextArea outputArea;
         private JButton issueButton, returnButton;
 
-         public TransactionPanel() {
+        public TransactionPanel() {
             setLayout(new BorderLayout(10, 10));
-            
+
             // Input panel
             JPanel inputPanel = new JPanel(new GridLayout(3, 2, 5, 5));
             bookIdField = new JTextField();
             memberIdField = new JTextField();
-            
+
             inputPanel.add(new JLabel("Book ID:"));
             inputPanel.add(bookIdField);
             inputPanel.add(new JLabel("Member ID:"));
             inputPanel.add(memberIdField);
-            
+
             issueButton = new JButton("Issue Book");
             returnButton = new JButton("Return Book");
-            
+
             JPanel buttonPanel = new JPanel(new FlowLayout());
             buttonPanel.add(issueButton);
             buttonPanel.add(returnButton);
-            
+
             inputPanel.add(issueButton);
             inputPanel.add(returnButton);
 
@@ -328,7 +329,7 @@ public class libraryManagementSystem {
             outputArea = new JTextArea(15, 50);
             outputArea.setEditable(false);
             JScrollPane scrollPane = new JScrollPane(outputArea);
-            
+
             // Add components
             add(inputPanel, BorderLayout.NORTH);
             add(scrollPane, BorderLayout.CENTER);
@@ -336,9 +337,25 @@ public class libraryManagementSystem {
             // Button actions
             issueButton.addActionListener(e -> issueBook());
             returnButton.addActionListener(e -> returnBook());
-            
+
             // Display initial transactions
             displayTransactions();
-         }
+        }
+
+        private void issueBook() {
+            String bookId = bookIdField.getText();
+            String memberId = memberIdField.getText();
+
+            if (bookId.isEmpty() || memberId.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Both fields are required!");
+                return;
+            }
+
+            if (!books.containsKey(bookId)) {
+                JOptionPane.showMessageDialog(this, "Book not found!");
+                return;
+            }
+
+        }
     }
 }
