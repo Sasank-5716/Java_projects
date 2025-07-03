@@ -374,6 +374,10 @@ public class libraryManagementSystem {
             cal.add(Calendar.DAY_OF_MONTH, 14); 
             Date dueDate = cal.getTime();
 
+            // Create transaction
+            Transaction transaction = new Transaction(bookId, memberId, issueDate, dueDate);
+            transactions.add(transaction);
+
         }
     }
 }
