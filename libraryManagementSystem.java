@@ -356,6 +356,17 @@ public class libraryManagementSystem {
                 return;
             }
 
+             if (!members.containsKey(memberId)) {
+                JOptionPane.showMessageDialog(this, "Member not found!");
+                return;
+            }
+            
+            Book book = books.get(bookId);
+            if (!book.isAvailable()) {
+                JOptionPane.showMessageDialog(this, "Book is already issued!");
+                return;
+            }
+
         }
     }
 }
