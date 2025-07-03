@@ -332,6 +332,13 @@ public class libraryManagementSystem {
             // Add components
             add(inputPanel, BorderLayout.NORTH);
             add(scrollPane, BorderLayout.CENTER);
+
+            // Button actions
+            issueButton.addActionListener(e -> issueBook());
+            returnButton.addActionListener(e -> returnBook());
+            
+            // Display initial transactions
+            displayTransactions();
          }
     }
 }
