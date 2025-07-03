@@ -367,6 +367,13 @@ public class libraryManagementSystem {
                 return;
             }
 
+            // Set issue and due dates
+            Date issueDate = new Date();
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(issueDate);
+            cal.add(Calendar.DAY_OF_MONTH, 14); 
+            Date dueDate = cal.getTime();
+
         }
     }
 }
