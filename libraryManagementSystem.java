@@ -378,6 +378,12 @@ public class libraryManagementSystem {
             Transaction transaction = new Transaction(bookId, memberId, issueDate, dueDate);
             transactions.add(transaction);
 
+            // Update book status
+            book.setAvailable(false);
+            
+            displayTransactions();
+            clearFields();
+
         }
     }
 }
