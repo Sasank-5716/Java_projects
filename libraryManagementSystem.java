@@ -397,6 +397,15 @@ public class libraryManagementSystem {
             if (!books.containsKey(bookId)) {
                 JOptionPane.showMessageDialog(this, "Book not found!");
                 return;
+
+            // Find active transaction for this book
+            Transaction transaction = null;
+            for (Transaction t : transactions) {
+                if (t.getBookId().equals(bookId) && t.getReturnDate() == null) {
+                    transaction = t;
+                    break;
+                }
+            }
             }
         }
     }
