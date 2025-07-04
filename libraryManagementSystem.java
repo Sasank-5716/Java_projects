@@ -385,5 +385,10 @@ public class libraryManagementSystem {
             clearFields();
 
         }
+
+        private void returnBook() {
+            String bookId = bookIdField.getText();
+        
+        }
     }
 }
