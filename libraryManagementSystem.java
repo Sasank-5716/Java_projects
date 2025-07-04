@@ -388,7 +388,16 @@ public class libraryManagementSystem {
 
         private void returnBook() {
             String bookId = bookIdField.getText();
-        
+            
+            if (bookId.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Book ID is required!");
+                return;
+            }
+            
+            if (!books.containsKey(bookId)) {
+                JOptionPane.showMessageDialog(this, "Book not found!");
+                return;
+            }
         }
     }
 }
