@@ -406,6 +406,11 @@ public class libraryManagementSystem {
                     break;
                 }
             }
+
+            if (transaction == null) {
+                JOptionPane.showMessageDialog(this, "No active transaction for this book!");
+                return;
+            }
             }
         }
     }
