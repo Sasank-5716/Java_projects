@@ -415,6 +415,19 @@ public class libraryManagementSystem {
                 // Set return date and calculate fine
                 Date returnDate = new Date();
                 transaction.setReturnDate(returnDate);
+
+                // Calculate days late
+            long daysLate = ChronoUnit.DAYS.between(
+                transaction.getDueDate().toInstant(),
+                returnDate.toInstant()
+            );
+            
+            if (daysLate > 0) {
+                double fine = calculateFine(daysLate);
+                transaction.setFine(fine);
+                JOptionPane.showMessageDialog(this, 
+                    "Book returned " + daysLate + " days late. Fine: ₹" + fine);
+            }
             }
         }
     }
