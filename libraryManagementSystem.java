@@ -356,11 +356,11 @@ public class libraryManagementSystem {
                 return;
             }
 
-             if (!members.containsKey(memberId)) {
+            if (!members.containsKey(memberId)) {
                 JOptionPane.showMessageDialog(this, "Member not found!");
                 return;
             }
-            
+
             Book book = books.get(bookId);
             if (!book.isAvailable()) {
                 JOptionPane.showMessageDialog(this, "Book is already issued!");
@@ -371,7 +371,7 @@ public class libraryManagementSystem {
             Date issueDate = new Date();
             Calendar cal = Calendar.getInstance();
             cal.setTime(issueDate);
-            cal.add(Calendar.DAY_OF_MONTH, 14); 
+            cal.add(Calendar.DAY_OF_MONTH, 14);
             Date dueDate = cal.getTime();
 
             // Create transaction
@@ -380,7 +380,7 @@ public class libraryManagementSystem {
 
             // Update book status
             book.setAvailable(false);
-            
+
             displayTransactions();
             clearFields();
 
@@ -388,29 +388,33 @@ public class libraryManagementSystem {
 
         private void returnBook() {
             String bookId = bookIdField.getText();
-            
+
             if (bookId.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Book ID is required!");
                 return;
             }
-            
+
             if (!books.containsKey(bookId)) {
                 JOptionPane.showMessageDialog(this, "Book not found!");
                 return;
 
-            // Find active transaction for this book
-            Transaction transaction = null;
-            for (Transaction t : transactions) {
-                if (t.getBookId().equals(bookId) && t.getReturnDate() == null) {
-                    transaction = t;
-                    break;
+                // Find active transaction for this book
+                Transaction transaction = null;
+                for (Transaction t : transactions) {
+                    if (t.getBookId().equals(bookId) && t.getReturnDate() == null) {
+                        transaction = t;
+                        break;
+                    }
                 }
-            }
 
-            if (transaction == null) {
-                JOptionPane.showMessageDialog(this, "No active transaction for this book!");
-                return;
-            }
+                if (transaction == null) {
+                    JOptionPane.showMessageDialog(this, "No active transaction for this book!");
+                    return;
+                }
+
+                // Set return date and calculate fine
+                Date returnDate = new Date();
+                transaction.setReturnDate(returnDate);
             }
         }
     }
