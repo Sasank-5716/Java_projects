@@ -20,25 +20,11 @@ class Book {
     }
 
     // Getters and setters
-    public String getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
+    public String getId() { return id; }
+    public String getTitle() { return title; }
+    public String getAuthor() { return author; }
+    public boolean isAvailable() { return available; }
+    public void setAvailable(boolean available) { this.available = available; }
 }
 
 // Member class
@@ -54,17 +40,9 @@ class Member {
     }
 
     // Getters
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getContact() {
-        return contact;
-    }
+    public String getId() { return id; }
+    public String getName() { return name; }
+    public String getContact() { return contact; }
 }
 
 // Transaction class
@@ -84,40 +62,18 @@ class Transaction {
     }
 
     // Getters and setters
-    public String getBookId() {
-        return bookId;
-    }
-
-    public String getMemberId() {
-        return memberId;
-    }
-
-    public Date getIssueDate() {
-        return issueDate;
-    }
-
-    public Date getDueDate() {
-        return dueDate;
-    }
-
-    public Date getReturnDate() {
-        return returnDate;
-    }
-
-    public double getFine() {
-        return fine;
-    }
-
-    public void setReturnDate(Date returnDate) {
-        this.returnDate = returnDate;
-    }
-
-    public void setFine(double fine) {
-        this.fine = fine;
-    }
+    public String getBookId() { return bookId; }
+    public String getMemberId() { return memberId; }
+    public Date getIssueDate() { return issueDate; }
+    public Date getDueDate() { return dueDate; }
+    public Date getReturnDate() { return returnDate; }
+    public double getFine() { return fine; }
+    public void setReturnDate(Date returnDate) { this.returnDate = returnDate; }
+    public void setFine(double fine) { this.fine = fine; }
 }
 
-public class libraryManagementSystem {
+// Main Library System
+public class LibraryManagementSystem {
     private static HashMap<String, Book> books = new HashMap<>();
     private static HashMap<String, Member> members = new HashMap<>();
     private static ArrayList<Transaction> transactions = new ArrayList<>();
@@ -156,7 +112,7 @@ public class libraryManagementSystem {
             loginButton.addActionListener(e -> {
                 String username = usernameField.getText();
                 String password = new String(passwordField.getPassword());
-
+                
                 if ("admin".equals(username) && "admin".equals(password)) {
                     new MainFrame().setVisible(true);
                     dispose();
@@ -178,16 +134,14 @@ public class libraryManagementSystem {
 
             // Create tabbed pane
             JTabbedPane tabbedPane = new JTabbedPane();
-
+            
             // Add tabs
             tabbedPane.addTab("Books", new BookPanel());
             tabbedPane.addTab("Members", new MemberPanel());
             tabbedPane.addTab("Transactions", new TransactionPanel());
-
+            
             add(tabbedPane, BorderLayout.CENTER);
-
         }
-
     }
 
     // Book Management Panel
@@ -197,98 +151,206 @@ public class libraryManagementSystem {
 
         public BookPanel() {
             setLayout(new BorderLayout(10, 10));
-
+            
             // Input panel
             JPanel inputPanel = new JPanel(new GridLayout(4, 2, 5, 5));
             idField = new JTextField();
             titleField = new JTextField();
             authorField = new JTextField();
-
+            
             inputPanel.add(new JLabel("Book ID:"));
             inputPanel.add(idField);
             inputPanel.add(new JLabel("Title:"));
             inputPanel.add(titleField);
             inputPanel.add(new JLabel("Author:"));
             inputPanel.add(authorField);
-
+            
             JButton addButton = new JButton("Add Book");
             JButton removeButton = new JButton("Remove Book");
-
+            
             JPanel buttonPanel = new JPanel(new FlowLayout());
             buttonPanel.add(addButton);
             buttonPanel.add(removeButton);
-
+            
             inputPanel.add(addButton);
             inputPanel.add(removeButton);
-
+            
             // Output area
             outputArea = new JTextArea(15, 50);
             outputArea.setEditable(false);
             JScrollPane scrollPane = new JScrollPane(outputArea);
-
+            
             // Add components
             add(inputPanel, BorderLayout.NORTH);
             add(scrollPane, BorderLayout.CENTER);
-
+            
             // Button actions
             addButton.addActionListener(e -> addBook());
             removeButton.addActionListener(e -> removeBook());
-
+            
             // Display initial books
             displayBooks();
         }
+        
+        private void addBook() {
+            String id = idField.getText();
+            String title = titleField.getText();
+            String author = authorField.getText();
+            
+            if (id.isEmpty() || title.isEmpty() || author.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "All fields are required!");
+                return;
+            }
+            
+            if (books.containsKey(id)) {
+                JOptionPane.showMessageDialog(this, "Book ID already exists!");
+                return;
+            }
+            
+            books.put(id, new Book(id, title, author));
+            displayBooks();
+            clearFields();
+        }
+        
+        private void removeBook() {
+            String id = idField.getText();
+            
+            if (id.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Book ID is required!");
+                return;
+            }
+            
+            if (!books.containsKey(id)) {
+                JOptionPane.showMessageDialog(this, "Book not found!");
+                return;
+            }
+            
+            books.remove(id);
+            displayBooks();
+            clearFields();
+        }
+        
+        private void displayBooks() {
+            StringBuilder sb = new StringBuilder("Available Books:\n");
+            sb.append("ID\tTitle\tAuthor\tStatus\n");
+            
+            for (Book book : books.values()) {
+                sb.append(book.getId()).append("\t")
+                  .append(book.getTitle()).append("\t")
+                  .append(book.getAuthor()).append("\t")
+                  .append(book.isAvailable() ? "Available" : "Issued")
+                  .append("\n");
+            }
+            
+            outputArea.setText(sb.toString());
+        }
+        
+        private void clearFields() {
+            idField.setText("");
+            titleField.setText("");
+            authorField.setText("");
+        }
+    }
 
+    // Member Management Panel
+    static class MemberPanel extends JPanel {
+        private JTextField idField, nameField, contactField;
+        private JTextArea outputArea;
+
+        public MemberPanel() {
+            setLayout(new BorderLayout(10, 10));
+            
+            // Input panel
+            JPanel inputPanel = new JPanel(new GridLayout(4, 2, 5, 5));
+            idField = new JTextField();
+            nameField = new JTextField();
+            contactField = new JTextField();
+            
+            inputPanel.add(new JLabel("Member ID:"));
+            inputPanel.add(idField);
+            inputPanel.add(new JLabel("Name:"));
+            inputPanel.add(nameField);
+            inputPanel.add(new JLabel("Contact:"));
+            inputPanel.add(contactField);
+            
+            JButton addButton = new JButton("Add Member");
+            JButton removeButton = new JButton("Remove Member");
+            
+            JPanel buttonPanel = new JPanel(new FlowLayout());
+            buttonPanel.add(addButton);
+            buttonPanel.add(removeButton);
+            
+            inputPanel.add(addButton);
+            inputPanel.add(removeButton);
+            
+            // Output area
+            outputArea = new JTextArea(15, 50);
+            outputArea.setEditable(false);
+            JScrollPane scrollPane = new JScrollPane(outputArea);
+            
+            // Add components
+            add(inputPanel, BorderLayout.NORTH);
+            add(scrollPane, BorderLayout.CENTER);
+            
+            // Button actions
+            addButton.addActionListener(e -> addMember());
+            removeButton.addActionListener(e -> removeMember());
+            
+            // Display initial members
+            displayMembers();
+        }
+        
         private void addMember() {
             String id = idField.getText();
             String name = nameField.getText();
             String contact = contactField.getText();
-
+            
             if (id.isEmpty() || name.isEmpty() || contact.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "All fields are required!");
                 return;
             }
-
+            
             if (members.containsKey(id)) {
                 JOptionPane.showMessageDialog(this, "Member ID already exists!");
                 return;
             }
-
+            
             members.put(id, new Member(id, name, contact));
             displayMembers();
             clearFields();
         }
-
+        
         private void removeMember() {
             String id = idField.getText();
-
+            
             if (id.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Member ID is required!");
                 return;
             }
-
+            
             if (!members.containsKey(id)) {
                 JOptionPane.showMessageDialog(this, "Member not found!");
                 return;
             }
-
+            
             members.remove(id);
             displayMembers();
             clearFields();
         }
-
+        
         private void displayMembers() {
             StringBuilder sb = new StringBuilder("Registered Members:\n");
             sb.append("ID\tName\tContact\n");
-
+            
             for (Member member : members.values()) {
                 sb.append(member.getId()).append("\t")
-                        .append(member.getName()).append("\t")
-                        .append(member.getContact()).append("\n");
+                  .append(member.getName()).append("\t")
+                  .append(member.getContact()).append("\n");
             }
-
+            
             outputArea.setText(sb.toString());
         }
-
+        
         private void clearFields() {
             idField.setText("");
             nameField.setText("");
@@ -304,143 +366,144 @@ public class libraryManagementSystem {
 
         public TransactionPanel() {
             setLayout(new BorderLayout(10, 10));
-
+            
             // Input panel
             JPanel inputPanel = new JPanel(new GridLayout(3, 2, 5, 5));
             bookIdField = new JTextField();
             memberIdField = new JTextField();
-
+            
             inputPanel.add(new JLabel("Book ID:"));
             inputPanel.add(bookIdField);
             inputPanel.add(new JLabel("Member ID:"));
             inputPanel.add(memberIdField);
-
+            
             issueButton = new JButton("Issue Book");
             returnButton = new JButton("Return Book");
-
+            
             JPanel buttonPanel = new JPanel(new FlowLayout());
             buttonPanel.add(issueButton);
             buttonPanel.add(returnButton);
-
+            
             inputPanel.add(issueButton);
             inputPanel.add(returnButton);
-
+            
             // Output area
             outputArea = new JTextArea(15, 50);
             outputArea.setEditable(false);
             JScrollPane scrollPane = new JScrollPane(outputArea);
-
+            
             // Add components
             add(inputPanel, BorderLayout.NORTH);
             add(scrollPane, BorderLayout.CENTER);
-
+            
             // Button actions
             issueButton.addActionListener(e -> issueBook());
             returnButton.addActionListener(e -> returnBook());
-
+            
             // Display initial transactions
             displayTransactions();
         }
-
+        
         private void issueBook() {
             String bookId = bookIdField.getText();
             String memberId = memberIdField.getText();
-
+            
             if (bookId.isEmpty() || memberId.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Both fields are required!");
                 return;
             }
-
+            
             if (!books.containsKey(bookId)) {
                 JOptionPane.showMessageDialog(this, "Book not found!");
                 return;
             }
-
+            
             if (!members.containsKey(memberId)) {
                 JOptionPane.showMessageDialog(this, "Member not found!");
                 return;
             }
-
+            
             Book book = books.get(bookId);
             if (!book.isAvailable()) {
                 JOptionPane.showMessageDialog(this, "Book is already issued!");
                 return;
             }
-
+            
             // Set issue and due dates
             Date issueDate = new Date();
             Calendar cal = Calendar.getInstance();
             cal.setTime(issueDate);
-            cal.add(Calendar.DAY_OF_MONTH, 14);
+            cal.add(Calendar.DAY_OF_MONTH, 14); // 14 days due period
             Date dueDate = cal.getTime();
-
+            
             // Create transaction
             Transaction transaction = new Transaction(bookId, memberId, issueDate, dueDate);
             transactions.add(transaction);
-
+            
             // Update book status
             book.setAvailable(false);
-
+            
             displayTransactions();
             clearFields();
-
         }
-
+        
         private void returnBook() {
             String bookId = bookIdField.getText();
-
+            
             if (bookId.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Book ID is required!");
                 return;
             }
-
+            
             if (!books.containsKey(bookId)) {
                 JOptionPane.showMessageDialog(this, "Book not found!");
                 return;
-
-                // Find active transaction for this book
-                Transaction transaction = null;
-                for (Transaction t : transactions) {
-                    if (t.getBookId().equals(bookId) && t.getReturnDate() == null) {
-                        transaction = t;
-                        break;
-                    }
-                }
-
-                if (transaction == null) {
-                    JOptionPane.showMessageDialog(this, "No active transaction for this book!");
-                    return;
-                }
-
-                // Set return date and calculate fine
-                Date returnDate = new Date();
-                transaction.setReturnDate(returnDate);
-
-                // Calculate days late
-                long daysLate = ChronoUnit.DAYS.between(
-                        transaction.getDueDate().toInstant(),
-                        returnDate.toInstant());
-
-                if (daysLate > 0) {
-                    double fine = calculateFine(daysLate);
-                    transaction.setFine(fine);
-                    JOptionPane.showMessageDialog(this,
-                            "Book returned " + daysLate + " days late. Fine: ₹" + fine);
-                }
-
-                // Update book status
-                books.get(bookId).setAvailable(true);
-
-                displayTransactions();
-                clearFields();
             }
-
-            private double calculateFine(long daysLate) {
+            
+            // Find active transaction for this book
+            Transaction transaction = null;
+            for (Transaction t : transactions) {
+                if (t.getBookId().equals(bookId) && t.getReturnDate() == null) {
+                    transaction = t;
+                    break;
+                }
+            }
+            
+            if (transaction == null) {
+                JOptionPane.showMessageDialog(this, "No active transaction for this book!");
+                return;
+            }
+            
+            // Set return date and calculate fine
+            Date returnDate = new Date();
+            transaction.setReturnDate(returnDate);
+            
+            // Calculate days late
+            long daysLate = ChronoUnit.DAYS.between(
+                transaction.getDueDate().toInstant(),
+                returnDate.toInstant()
+            );
+            
+            if (daysLate > 0) {
+                double fine = calculateFine(daysLate);
+                transaction.setFine(fine);
+                JOptionPane.showMessageDialog(this, 
+                    "Book returned " + daysLate + " days late. Fine: ₹" + fine);
+            }
+            
+            // Update book status
+            books.get(bookId).setAvailable(true);
+            
+            displayTransactions();
+            clearFields();
+        }
+        
+        private double calculateFine(long daysLate) {
             if (daysLate <= 5) return daysLate * 0.5;
             if (daysLate <= 10) return 2.5 + (daysLate - 5) * 1;
             return 7.5 + (daysLate - 10) * 5;
         }
-
+        
         private void displayTransactions() {
             StringBuilder sb = new StringBuilder("Transaction History:\n");
             sb.append("Book\tMember\tIssue Date\tDue Date\tReturn Date\tFine\n");
@@ -456,11 +519,10 @@ public class libraryManagementSystem {
             
             outputArea.setText(sb.toString());
         }
-
+        
         private void clearFields() {
             bookIdField.setText("");
             memberIdField.setText("");
-        }
         }
     }
 }
