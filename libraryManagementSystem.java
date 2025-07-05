@@ -434,6 +434,12 @@ public class libraryManagementSystem {
                 displayTransactions();
                 clearFields();
             }
+
+            private double calculateFine(long daysLate) {
+            if (daysLate <= 5) return daysLate * 0.5;
+            if (daysLate <= 10) return 2.5 + (daysLate - 5) * 1;
+            return 7.5 + (daysLate - 10) * 5;
+        }
         }
     }
 }
