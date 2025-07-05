@@ -456,6 +456,11 @@ public class libraryManagementSystem {
             
             outputArea.setText(sb.toString());
         }
+
+        private void clearFields() {
+            bookIdField.setText("");
+            memberIdField.setText("");
+        }
         }
     }
 }
