@@ -445,7 +445,14 @@ public class libraryManagementSystem {
             StringBuilder sb = new StringBuilder("Transaction History:\n");
             sb.append("Book\tMember\tIssue Date\tDue Date\tReturn Date\tFine\n");
             
-            
+            for (Transaction t : transactions) {
+                sb.append(t.getBookId()).append("\t")
+                  .append(t.getMemberId()).append("\t")
+                  .append(sdf.format(t.getIssueDate())).append("\t")
+                  .append(sdf.format(t.getDueDate())).append("\t")
+                  .append(t.getReturnDate() != null ? sdf.format(t.getReturnDate()) : "Not Returned").append("\t")
+                  .append(t.getFine()).append("\n");
+            }
             
             outputArea.setText(sb.toString());
         }
