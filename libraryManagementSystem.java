@@ -440,6 +440,15 @@ public class libraryManagementSystem {
             if (daysLate <= 10) return 2.5 + (daysLate - 5) * 1;
             return 7.5 + (daysLate - 10) * 5;
         }
+
+        private void displayTransactions() {
+            StringBuilder sb = new StringBuilder("Transaction History:\n");
+            sb.append("Book\tMember\tIssue Date\tDue Date\tReturn Date\tFine\n");
+            
+            
+            
+            outputArea.setText(sb.toString());
+        }
         }
     }
 }
