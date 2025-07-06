@@ -115,9 +115,33 @@ public class libraryManagementSystem {
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setLayout(new GridLayout(4, 2, 10, 10));
             setLocationRelativeTo(null);
+            
+             JPanel inputPanel = new JPanel(new GridBagLayout());
+            inputPanel.setBackground(new Color(245, 245, 245));
+            GridBagConstraints gbc = new GridBagConstraints();
+            gbc.insets = new Insets(8, 8, 8, 8);
+            gbc.anchor = GridBagConstraints.WEST;
 
             JLabel userLabel = new JLabel("Username:");
+            userLabel.setFont(new Font("Segoe UI", Font.BOLD, 14));
+            usernameField = new JTextField(20);
+            usernameField.setToolTipText("Enter your username");
+
             JLabel passLabel = new JLabel("Password:");
+            passLabel.setFont(new Font("Segoe UI", Font.BOLD, 14));
+            passwordField = new JPasswordField(20);
+            passwordField.setToolTipText("Enter your password");
+
+            gbc.gridx = 0; gbc.gridy = 0;
+            inputPanel.add(userLabel, gbc);
+            gbc.gridx = 1;
+            inputPanel.add(usernameField, gbc);
+
+            gbc.gridx = 0; gbc.gridy = 1;
+            inputPanel.add(passLabel, gbc);
+            gbc.gridx = 1;
+            inputPanel.add(passwordField, gbc);
+
             usernameField = new JTextField();
             passwordField = new JPasswordField();
             JButton loginButton = new JButton("Login");
