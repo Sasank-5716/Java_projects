@@ -142,8 +142,8 @@ public class libraryManagementSystem {
             gbc.gridx = 1;
             inputPanel.add(passwordField, gbc);
 
-            usernameField = new JTextField();
-            passwordField = new JPasswordField();
+           JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
+            buttonPanel.setBackground(new Color(245, 245, 245));
             JButton loginButton = new JButton("Login");
             JButton signupButton = new JButton("Signup");
 
