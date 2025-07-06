@@ -160,9 +160,9 @@ public class libraryManagementSystem {
             loginButton.setFont(btnFont);
             signupButton.setFont(btnFont);
             loginButton.setBackground(new Color(70, 130, 180));
-            loginButton.setForeground(Color.WHITE);
+            loginButton.setForeground(Color.BLACK);
             signupButton.setBackground(new Color(34, 139, 34));
-            signupButton.setForeground(Color.WHITE);
+            signupButton.setForeground(Color.BLACK);
             loginButton.setFocusPainted(false);
             signupButton.setFocusPainted(false);
 
