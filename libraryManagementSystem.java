@@ -147,6 +147,16 @@ public class libraryManagementSystem {
             JButton loginButton = new JButton("Login");
             JButton signupButton = new JButton("Signup");
 
+            Font btnFont = new Font("Segoe UI", Font.BOLD, 14);
+            loginButton.setFont(btnFont);
+            signupButton.setFont(btnFont);
+            loginButton.setBackground(new Color(70, 130, 180));
+            loginButton.setForeground(Color.WHITE);
+            signupButton.setBackground(new Color(34, 139, 34));
+            signupButton.setForeground(Color.WHITE);
+            loginButton.setFocusPainted(false);
+            signupButton.setFocusPainted(false);
+
             add(userLabel);
             add(usernameField);
             add(passLabel);
