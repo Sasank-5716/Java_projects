@@ -1,7 +1,8 @@
 # Java Projects
 
-1- Simple Banking Application
-2- Library Management System
+1. Simple Banking Application
+
+2. Library Management System
 
 
 ___________________________________________________________________________________________________________________________________________________
