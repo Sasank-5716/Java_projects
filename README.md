@@ -23,18 +23,31 @@ Transactions: Issue and return books, with automatic fine calculation.
 Modern UI: Clean design, intuitive navigation, and responsive tables.
 
 ## 🚀 Getting Started
-Clone or Download:
-Save the LibraryManagementSystem.java file.
+1. Clone or Download:
+```bash
+git clone https://github.com/Sasank-5716/Java_projects
+```
 
-Login or Signup:
+2. Compile
+```bash
+javac libraryManagementSystem.java
+```
 
-Default admin:
+3. Run
+```bash
+java libraryManagementSystem
 
-Username: admin
+```
 
-Password: admin
+4. Login or Signup:
 
-Or create a new account via Signup.
+-Default admin:
+
+    -Username: admin
+
+    -Password: admin
+
+-Or create a new account via Signup.
 
 ## 🖥️ Screenshots
 (Add your screenshots here!)
