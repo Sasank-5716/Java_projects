@@ -1,14 +1,14 @@
 # Java Projects
 
-1. Simple Banking Application
+1. Library Management System
 
-2. Library Management System
+2. Simple Banking Application
 
 
 ___________________________________________________________________________________________________________________________________________________
 
 
-# 📚 Library Management System (Java Swing)
+# 1. 📚 Library Management System (Java Swing)
 A modern, user-friendly Library Management System built with Java Swing.
 Easily manage books, members, and transactions with a beautiful graphical interface.
 
@@ -55,4 +55,22 @@ java libraryManagementSystem
 
 ![LibraryManagementSystem](Java2.png)
 
+
 Happy reading and managing! 📖✨
+
+___________________________________________________________________________________________________________________________________________________
+
+# 2. 🏦 Simple Banking Application (Java)
+A straightforward Java application to manage basic banking operations such as account creation, deposits, withdrawals, and balance checks—all via a user-friendly interface.
+
+## ✨ Features
+Account Management: Create and manage multiple bank accounts.
+
+Deposit & Withdraw: Securely deposit or withdraw funds.
+
+Balance Inquiry: Instantly check account balances.
+
+Transaction History: View recent transactions for each account.
+
+Simple UI: Clean, intuitive Java Swing interface for easy navigation.
+
