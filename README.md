@@ -50,6 +50,8 @@ java libraryManagementSystem
 -Or create a new account via Signup.
 
 ## 🖥️ Screenshots
-(Add your screenshots here!)
+![LibraryManagementSystem](Java1.png)
+
+![LibraryManagementSystem](Java2.png)
 
 Happy reading and managing! 📖✨
