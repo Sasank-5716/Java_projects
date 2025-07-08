@@ -51,9 +51,9 @@ java libraryManagementSystem
 -Or create a new account via Signup.
 
 ## 🖥️ Screenshots
-![LibraryManagementSystem](Java1.png)
+![LibraryManagementSystem](/Assets/LMS1.png)
 
-![LibraryManagementSystem](Java2.png)
+![LibraryManagementSystem](/Assets/LMS2.png)
 
 
 Happy reading and managing! 📖✨
