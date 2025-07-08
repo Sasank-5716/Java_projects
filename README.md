@@ -74,7 +74,21 @@ Transaction History: View recent transactions for each account.
 
 Simple UI: Clean, intuitive Java Swing interface for easy navigation.
 
+## 🚀 Getting Started
+1. Clone Repo
+```bash
+git clone https://github.com/Sasank-5716/Java_projects
+```
+2. Compile
+```bash
+javac SimpleBankingApplication.java
 
+```
+
+3. Run the program
+```bash
+java SimpleBankingApplication
+```
 
 
 ## 📝 Usage
