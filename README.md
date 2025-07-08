@@ -74,3 +74,25 @@ Transaction History: View recent transactions for each account.
 
 Simple UI: Clean, intuitive Java Swing interface for easy navigation.
 
+
+
+
+## 📝 Usage
+1. Create Account:
+Enter user details and open a new bank account.
+
+2. Deposit/Withdraw:
+Select an account, specify the amount, and perform the transaction.
+
+3. Check Balance:
+Instantly view the current balance of any account.
+
+4. View Transactions:
+See a list of recent deposits and withdrawals for each account.
+
+## 🖥️ Screenshots
+![Simple Banking Application]()
+
+
+Enjoy safe and simple banking! 💸
+
