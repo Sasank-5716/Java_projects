@@ -111,13 +111,14 @@ public class SimpleBankingApplication {
         if (account == null)
             return;
 
-        System.out.println("\n╔══════════════════════════╗");
-        System.out.println("║      ACCOUNT DETAILS     ║");
-        System.out.println("╠══════════════════════════╣");
-        System.out.printf("║ Holder: %-16s ║%n", account.getAccountHolderName());
-        System.out.printf("║ Number: %-16s ║%n", account.getAccountNumber());
-        System.out.printf("║ Balance: $%-14.2f ║%n", account.getBalance());
-        System.out.println("╚══════════════════════════╝");
+        System.out.println("+-------------------------+");
+        System.out.println("|      ACCOUNT DETAILS    |");
+        System.out.println("+-------------------------+");
+        System.out.printf("| Holder: %-16s |\n", account.getAccountHolderName());
+        System.out.printf("| Number: %-16s |\n", account.getAccountNumber());
+        System.out.printf("| Balance: $%-14.2f |\n", account.getBalance());
+        System.out.println("+-------------------------+");
+
     }
 
     private static BankAccount getAccount() {
