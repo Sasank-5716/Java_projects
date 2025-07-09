@@ -31,12 +31,12 @@ git clone https://github.com/Sasank-5716/Java_projects
 
 2. Compile
 ```bash
-javac libraryManagementSystem.java
+javac LibraryManagementSystem/ibraryManagementSystem.java
 ```
 
 3. Run
 ```bash
-java libraryManagementSystem
+java LibraryManagementSystem/ibraryManagementSystem
 
 ```
 
@@ -81,13 +81,13 @@ git clone https://github.com/Sasank-5716/Java_projects
 ```
 2. Compile
 ```bash
-javac SimpleBankingApplication.java
+javac SimpleBankingApplication/SimpleBankingApplication.java
 
 ```
 
 3. Run the program
 ```bash
-java SimpleBankingApplication
+java SimpleBankingApplication/SimpleBankingApplication
 ```
 
 
