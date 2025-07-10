@@ -10,7 +10,7 @@ public class NumberGuessingGame extends JFrame {
     private JLabel messageLabel;
     private JButton guessButton;
 
-       // Animation fields
+    // Animation fields
     private Timer animationTimer;
     private int animationCount;
 
@@ -42,7 +42,7 @@ public class NumberGuessingGame extends JFrame {
             }
         });
 
-          // Layout setup
+        // Layout setup
         add(messageLabel, BorderLayout.NORTH);
 
         JPanel inputPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -71,6 +71,36 @@ public class NumberGuessingGame extends JFrame {
             return;
         }
 
+        try {
+            int guess = Integer.parseInt(userInput);
+            attempts++;
+
+            if (guess < 1 || guess > 100) {
+                JOptionPane.showMessageDialog(this, "Please enter a number between 1 and 100.", "Input Error",
+                        JOptionPane.WARNING_MESSAGE);
+            } else if (guess == numberToGuess) {
+                startWinnerAnimation();
+            } else if (guess < numberToGuess) {
+                if (numberToGuess - guess <= 5) {
+                    messageLabel.setText("Little low! Try again.");
+                } else {
+                    messageLabel.setText("Too low! Try again.");
+                }
+            } else { // guess > numberToGuess
+                if (guess - numberToGuess <= 5) {
+                    messageLabel.setText("Little high! Try again.");
+                } else {
+                    messageLabel.setText("Too high! Try again.");
+                }
+            }
+            guessField.setText("");
+            guessField.requestFocusInWindow();
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Invalid input! Please enter a valid whole number.", "Input Error",
+                    JOptionPane.ERROR_MESSAGE);
+            guessField.setText("");
+            guessField.requestFocusInWindow();
+        }
     }
 
 }
