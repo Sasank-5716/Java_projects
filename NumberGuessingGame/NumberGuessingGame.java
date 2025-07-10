@@ -108,6 +108,37 @@ public class NumberGuessingGame extends JFrame {
         guessField.setEnabled(false);
         guessButton.setEnabled(false);
 
+        animationCount = 0;
+        animationTimer = new Timer(300, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Alternate background colors and text
+                if (animationCount % 2 == 0) {
+                    messageLabel.setBackground(Color.YELLOW);
+                    messageLabel.setOpaque(true);
+                    messageLabel.setText("🎉 You Win! 🎉");
+                } else {
+                    messageLabel.setBackground(Color.GREEN);
+                    messageLabel.setOpaque(true);
+                    messageLabel.setText("⭐ Congratulations! ⭐");
+                }
+                animationCount++;
+                if (animationCount > 6) { // Flash 7 times (~2.1 seconds)
+                    animationTimer.stop();
+                    JOptionPane.showMessageDialog(NumberGuessingGame.this,
+                            "Congratulations! You guessed the number " + numberToGuess + " in " + attempts
+                                    + " attempts.",
+                            "You Win!", JOptionPane.INFORMATION_MESSAGE);
+                    resetGame();
+                    guessField.setEnabled(true);
+                    guessButton.setEnabled(true);
+                    messageLabel.setOpaque(false);
+                    messageLabel.setBackground(null);
+                }
+            }
+        });
+        animationTimer.start();
+
     }
 
 }
