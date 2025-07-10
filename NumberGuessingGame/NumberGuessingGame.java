@@ -29,6 +29,19 @@ public class NumberGuessingGame extends JFrame {
         guessField = new JTextField();
         guessButton = new JButton("Guess");
 
+        // Guess button action
+        guessButton.addActionListener(e -> processGuess());
+
+        // Enter key triggers guess
+        guessField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    processGuess();
+                }
+            }
+        });
+
     }
 
 }
