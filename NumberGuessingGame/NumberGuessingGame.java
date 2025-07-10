@@ -42,6 +42,21 @@ public class NumberGuessingGame extends JFrame {
             }
         });
 
+          // Layout setup
+        add(messageLabel, BorderLayout.NORTH);
+
+        JPanel inputPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        guessField.setPreferredSize(new Dimension(150, 25));
+        inputPanel.add(guessField);
+        add(inputPanel, BorderLayout.CENTER);
+
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.add(guessButton);
+        add(buttonPanel, BorderLayout.SOUTH);
+
+        setLocationRelativeTo(null); // Center window
+        setVisible(true);
+
     }
 
 }
