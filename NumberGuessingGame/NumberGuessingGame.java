@@ -59,4 +59,18 @@ public class NumberGuessingGame extends JFrame {
 
     }
 
+    private void processGuess() {
+        if (animationTimer != null && animationTimer.isRunning()) {
+            // Ignore input during animation
+            return;
+        }
+
+        String userInput = guessField.getText().trim();
+        if (userInput.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter a number.", "Input Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+    }
+
 }
