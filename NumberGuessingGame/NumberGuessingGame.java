@@ -103,4 +103,11 @@ public class NumberGuessingGame extends JFrame {
         }
     }
 
+    private void startWinnerAnimation() {
+        // Disable inputs during animation
+        guessField.setEnabled(false);
+        guessButton.setEnabled(false);
+
+    }
+
 }
