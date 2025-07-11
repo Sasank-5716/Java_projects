@@ -149,4 +149,7 @@ public class NumberGuessingGame extends JFrame {
         guessField.requestFocusInWindow();
     }
 
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(NumberGuessingGame::new);
+    }
 }
