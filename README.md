@@ -143,7 +143,11 @@ A simple and interactive Number Guessing Game built with Java Swing. The game ch
 - Input validation: Ensures only numbers between 1 and 100 are accepted.
 
 ## Screenshots
-Add screenshots of the game window here for better visualization.
+![Number Guessing Game](./Assets/NumberGuessingGame1.png)
+
+![Number Guessing Game](./Assets/NumberGuessingGame2.png)
+
+![Number Guessing Game](./Assets/NumberGuessingGame3.png)
 
 ## Getting Started
 ### Prerequisites
@@ -168,17 +172,17 @@ java NumberGuessingGame/NumberGuessingGame
 ```
 
 ## How to Play
-Start the game: The window displays a prompt to guess a number between 1 and 100.
+1. Start the game: The window displays a prompt to guess a number between 1 and 100.
 
-Enter your guess in the text field and click "Guess" or press Enter.
+2. Enter your guess in the text field and click "Guess" or press Enter.
 
-Read the feedback:
+3. Read the feedback:
 
-If your guess is too high/low, or just a little high/low, feedback is shown above the input.
+    - If your guess is too high/low, or just a little high/low, feedback is shown above the input.
 
-If you guess correctly, a celebratory animation plays and a congratulatory message appears.
+    - If you guess correctly, a celebratory animation plays and a congratulatory message appears.
 
-Play again: After winning, the game resets automatically for a new round.
+4. Play again: After winning, the game resets automatically for a new round.
 
 ## Customization
 - Change the range: Adjust the random number range in the code.
