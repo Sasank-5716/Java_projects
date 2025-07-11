@@ -141,4 +141,12 @@ public class NumberGuessingGame extends JFrame {
 
     }
 
+    private void resetGame() {
+        numberToGuess = new Random().nextInt(100) + 1;
+        attempts = 0;
+        messageLabel.setText("Guess a number between 1 and 100:");
+        guessField.setText("");
+        guessField.requestFocusInWindow();
+    }
+
 }
