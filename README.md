@@ -152,18 +152,20 @@ Java Development Kit (JDK) 8 or above installed
 A text editor or IDE (e.g., IntelliJ IDEA, Eclipse, VS Code)
 
 ### Installation and Running
-Clone or Download the Repository
+1. Clone or Download the Repository
 
-Download the source code or clone the repository to your local machine.
+    - Download the source code or clone the repository to your local machine.
 
-Compile the Program
+2. Compile the Program
 
-bash
-javac NumberGuessingGameGUI.java
-Run the Program
+```bash
+javac NumberGuessingGame/NumberGuessingGame.java
+```
+3. Run the Program
 
-bash
-java NumberGuessingGameGUI
+```bash
+java NumberGuessingGame/NumberGuessingGame
+```
 
 ## How to Play
 Start the game: The window displays a prompt to guess a number between 1 and 100.
@@ -179,12 +181,12 @@ If you guess correctly, a celebratory animation plays and a congratulatory messa
 Play again: After winning, the game resets automatically for a new round.
 
 ## Customization
-Change the range: Adjust the random number range in the code.
+- Change the range: Adjust the random number range in the code.
 
-Modify animations: Customize colors, duration, or add images/sounds.
+- Modify animations: Customize colors, duration, or add images/sounds.
 
-Enhance UI: Add more styling or features as desired.
+- Enhance UI: Add more styling or features as desired.
 
-Credits
+## Credits
 Developed as a beginner-friendly Java Swing project for learning and fun.
 
