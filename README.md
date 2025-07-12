@@ -121,10 +121,10 @@ See a list of recent deposits and withdrawals for each account.
 Enjoy safe and simple banking! 💸
 
 
-_________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________
 
 
-# Number Guessing Game (Java Swing)
+# 3. Number Guessing Game (Java Swing)
 A simple and interactive Number Guessing Game built with Java Swing. The game challenges players to guess a randomly generated number between 1 and 100, providing helpful feedback and a celebratory animation when the correct number is guessed.
 
 ## Features
