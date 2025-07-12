@@ -16,7 +16,12 @@ A simple and interactive Number Guessing Game built with Java Swing. The game ch
 
 - Input validation: Ensures only numbers between 1 and 100 are accepted.
 
+## Screenshots
+![Number Guessing Game](./Assets/NumberGuessingGame1.png)
 
+![Number Guessing Game](./Assets/NumberGuessingGame2.png)
+
+![Number Guessing Game](./Assets/NumberGuessingGame3.png)
 
 ## Getting Started
 ### Prerequisites
