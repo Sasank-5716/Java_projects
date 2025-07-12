@@ -33,12 +33,12 @@ git clone https://github.com/Sasank-5716/Java_projects
 
 2. Compile
 ```bash
-javac LibraryManagementSystem/ibraryManagementSystem.java
+javac LibraryManagementSystem/libraryManagementSystem.java
 ```
 
 3. Run
 ```bash
-java LibraryManagementSystem/ibraryManagementSystem
+java LibraryManagementSystem/libraryManagementSystem
 
 ```
 
