@@ -44,5 +44,11 @@ public class TodoListApp extends JFrame {
         inputPanel.add(addButton, BorderLayout.EAST);
 
         add(inputPanel, BorderLayout.NORTH);
+
+        // Models for pending and completed tasks
+        pendingModel = new DefaultListModel<>();
+        completedModel = new DefaultListModel<>();
+
+
     }
 }
