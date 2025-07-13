@@ -26,5 +26,23 @@ public class TodoListApp extends JFrame {
 
         getContentPane().setBackground(bgColor);
         setLayout(new BorderLayout(10, 10));
+
+        // Input panel at top
+        JPanel inputPanel = new JPanel(new BorderLayout(5, 5));
+        inputPanel.setBackground(bgColor);
+
+        taskField = new JTextField();
+        taskField.setFont(font);
+        taskField.setForeground(textColor);
+        inputPanel.add(taskField, BorderLayout.CENTER);
+
+        addButton = new JButton("Add Task");
+        addButton.setFont(font);
+        addButton.setBackground(btnAddColor);
+        addButton.setForeground(Color.BLACK);  // Button text color set to black
+        addButton.setFocusPainted(false);
+        inputPanel.add(addButton, BorderLayout.EAST);
+
+        add(inputPanel, BorderLayout.NORTH);
     }
 }
