@@ -16,5 +16,15 @@ public class TodoListApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);
         setLocationRelativeTo(null); // Center window
+
+        // Colors and fonts
+        Font font = new Font("Segoe UI", Font.PLAIN, 16);
+        Color bgColor = new Color(245, 245, 245);
+        Color btnAddColor = new Color(100, 149, 237);
+        Color btnRemoveColor = new Color(220, 20, 60);
+        Color textColor = Color.BLACK;
+
+        getContentPane().setBackground(bgColor);
+        setLayout(new BorderLayout(10, 10));
     }
 }
