@@ -61,6 +61,12 @@ public class TodoListApp extends JFrame {
         pendingList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         completedList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
+         // Set font and text color
+        pendingList.setFont(font);
+        completedList.setFont(font);
+        pendingList.setForeground(textColor);
+        completedList.setForeground(textColor);
+
 
 
 
