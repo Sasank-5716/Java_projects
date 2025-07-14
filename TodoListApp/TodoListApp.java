@@ -83,7 +83,18 @@ public class TodoListApp extends JFrame {
         JPanel listsPanel = new JPanel(new GridLayout(1, 2, 10, 10));
         listsPanel.setBackground(bgColor);
 
+        // Panel for pending tasks with label and remove button
+        JPanel pendingPanel = new JPanel(new BorderLayout(5, 5));
+        pendingPanel.setBackground(bgColor);
+        pendingPanel.add(pendingLabel, BorderLayout.NORTH);
+        pendingPanel.add(pendingScroll, BorderLayout.CENTER);
 
+        removePendingButton = new JButton("Remove Selected Pending");
+        removePendingButton.setFont(font);
+        removePendingButton.setBackground(btnRemoveColor);
+        removePendingButton.setForeground(Color.BLACK);  // Button text color set to black
+        removePendingButton.setFocusPainted(false);
+        pendingPanel.add(removePendingButton, BorderLayout.SOUTH);
 
     }
 }
