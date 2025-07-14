@@ -49,6 +49,20 @@ public class TodoListApp extends JFrame {
         pendingModel = new DefaultListModel<>();
         completedModel = new DefaultListModel<>();
 
+        // Lists
+        pendingList = new JList<>(pendingModel);
+        completedList = new JList<>(completedModel);
+
+        // Set custom cell renderer to show checkbox + text
+        pendingList.setCellRenderer(new TaskCellRenderer());
+        completedList.setCellRenderer(new TaskCellRenderer());
+
+        // Allow selection of single task at a time
+        pendingList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        completedList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+
+
 
     }
 }
