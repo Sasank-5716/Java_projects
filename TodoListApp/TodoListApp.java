@@ -79,6 +79,10 @@ public class TodoListApp extends JFrame {
         completedLabel.setFont(font);
         completedLabel.setForeground(textColor);
 
+        // Panel for lists side by side
+        JPanel listsPanel = new JPanel(new GridLayout(1, 2, 10, 10));
+        listsPanel.setBackground(bgColor);
+
 
 
     }
