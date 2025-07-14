@@ -67,6 +67,17 @@ public class TodoListApp extends JFrame {
         pendingList.setForeground(textColor);
         completedList.setForeground(textColor);
 
+        // Scroll panes
+        JScrollPane pendingScroll = new JScrollPane(pendingList);
+        JScrollPane completedScroll = new JScrollPane(completedList);
+
+        // Labels for sections
+        JLabel pendingLabel = new JLabel("Pending Tasks");
+        pendingLabel.setFont(font);
+        pendingLabel.setForeground(textColor);
+        JLabel completedLabel = new JLabel("Completed Tasks");
+        completedLabel.setFont(font);
+        completedLabel.setForeground(textColor);
 
 
 
