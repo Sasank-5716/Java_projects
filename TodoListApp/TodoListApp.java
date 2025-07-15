@@ -172,6 +172,17 @@ public class TodoListApp extends JFrame {
 
         setVisible(true);
 
-
     }
+
+    private void addTask() {
+        String text = taskField.getText().trim();
+        if (!text.isEmpty()) {
+            Task task = new Task(text, false);
+            pendingModel.addElement(task);
+            taskField.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Please enter a task.", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
 }
