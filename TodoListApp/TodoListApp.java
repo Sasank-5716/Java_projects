@@ -162,6 +162,16 @@ public class TodoListApp extends JFrame {
             }
         });
 
+        completedList.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DELETE) {
+                    removeSelectedTask(completedList, completedModel);
+                }
+            }
+        });
+
+        setVisible(true);
+
 
     }
 }
