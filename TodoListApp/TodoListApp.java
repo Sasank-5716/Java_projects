@@ -153,7 +153,14 @@ public class TodoListApp extends JFrame {
             }
         });
 
-
+        // Keyboard shortcuts: Delete key removes selected task
+        pendingList.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DELETE) {
+                    removeSelectedTask(pendingList, pendingModel);
+                }
+            }
+        });
 
 
     }
