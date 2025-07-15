@@ -114,5 +114,13 @@ public class TodoListApp extends JFrame {
 
         add(listsPanel, BorderLayout.CENTER);
 
+        // Add task action
+        addButton.addActionListener(e -> addTask());
+        taskField.addActionListener(e -> addTask());
+
+        // Remove buttons actions
+        removePendingButton.addActionListener(e -> removeSelectedTask(pendingList, pendingModel));
+        removeCompletedButton.addActionListener(e -> removeSelectedTask(completedList, completedModel));
+
     }
 }
