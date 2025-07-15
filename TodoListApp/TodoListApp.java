@@ -138,6 +138,23 @@ public class TodoListApp extends JFrame {
             }
         });
 
+         completedList.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                int index = completedList.locationToIndex(e.getPoint());
+                if (index != -1) {
+                    Task task = completedModel.getElementAt(index);
+                    Rectangle rect = completedList.getCellBounds(index, index);
+                    if (e.getX() < rect.x + 20) {
+                        task.setCompleted(false);
+                        completedModel.remove(index);
+                        pendingModel.addElement(task);
+                    }
+                }
+            }
+        });
+
+
+
 
     }
 }
