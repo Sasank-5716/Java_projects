@@ -122,5 +122,22 @@ public class TodoListApp extends JFrame {
         removePendingButton.addActionListener(e -> removeSelectedTask(pendingList, pendingModel));
         removeCompletedButton.addActionListener(e -> removeSelectedTask(completedList, completedModel));
 
+        // Mouse listener for checkbox toggle
+        pendingList.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                int index = pendingList.locationToIndex(e.getPoint());
+                if (index != -1) {
+                    Task task = pendingModel.getElementAt(index);
+                    Rectangle rect = pendingList.getCellBounds(index, index);
+                    if (e.getX() < rect.x + 20) {
+                        task.setCompleted(true);
+                        pendingModel.remove(index);
+                        completedModel.addElement(task);
+                    }
+                }
+            }
+        });
+
+
     }
 }
