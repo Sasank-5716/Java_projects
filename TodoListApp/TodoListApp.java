@@ -207,6 +207,19 @@ public class TodoListApp extends JFrame {
         public String getText() {
             return text;
         }
+
+        public boolean isCompleted() {
+            return completed;
+        }
+
+        public void setCompleted(boolean completed) {
+            this.completed = completed;
+        }
+
+        @Override
+        public String toString() {
+            return text;
+        }
     }
 
 
