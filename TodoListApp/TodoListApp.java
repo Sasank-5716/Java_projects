@@ -222,6 +222,13 @@ public class TodoListApp extends JFrame {
         }
     }
 
-
+    // Custom cell renderer to show checkbox + task text
+    private static class TaskCellRenderer extends JCheckBox implements ListCellRenderer<Task> {
+        public TaskCellRenderer() {
+            setOpaque(true);
+            setFont(new Font("Segoe UI", Font.PLAIN, 16));
+            setForeground(Color.BLACK);
+        }
+    }
 
 }
