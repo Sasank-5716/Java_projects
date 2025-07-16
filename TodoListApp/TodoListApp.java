@@ -229,6 +229,21 @@ public class TodoListApp extends JFrame {
             setFont(new Font("Segoe UI", Font.PLAIN, 16));
             setForeground(Color.BLACK);
         }
+         @Override
+        public Component getListCellRendererComponent(JList<? extends Task> list, Task value, int index,
+                                                      boolean isSelected, boolean cellHasFocus) {
+            setText(value.getText());
+            setSelected(value.isCompleted());
+
+            if (isSelected) {
+                setBackground(list.getSelectionBackground());
+                setForeground(list.getSelectionForeground());
+            } else {
+                setBackground(list.getBackground());
+                setForeground(Color.BLACK);
+            }
+            return this;
+        }
     }
 
 }
