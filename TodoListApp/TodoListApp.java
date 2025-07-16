@@ -194,6 +194,21 @@ public class TodoListApp extends JFrame {
         }
     }
 
+    // Task class to hold task text and completion status
+    private static class Task {
+        private String text;
+        private boolean completed;
+
+        public Task(String text, boolean completed) {
+            this.text = text;
+            this.completed = completed;
+        }
+
+        public String getText() {
+            return text;
+        }
+    }
+
 
 
 }
