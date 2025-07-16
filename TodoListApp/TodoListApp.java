@@ -185,4 +185,15 @@ public class TodoListApp extends JFrame {
         }
     }
 
+     private void removeSelectedTask(JList<Task> list, DefaultListModel<Task> model) {
+        int selectedIndex = list.getSelectedIndex();
+        if (selectedIndex != -1) {
+            model.remove(selectedIndex);
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a task to remove.", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+
+
 }
