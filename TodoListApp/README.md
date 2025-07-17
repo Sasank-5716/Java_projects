@@ -18,7 +18,26 @@ A visually appealing **Java Swing To-Do List application** that allows users to 
 - Java 8 or higher ☕
 - IDE such as IntelliJ IDEA, Eclipse, NetBeans or terminal access to javac and java
 
+### Installation & Running
 
+1. **Clone or Download** this repository 📥
+```bash
+git clone https://github.com/Sasank-5716/Java_projects
+```
+
+2. **Navigate** to your project directory 📂
+```bash
+cd TodoListApp
+```
+
+3. **Compile:**
+```bash
+javac TodoListApp.java
+```
+4. **Run:**
+```bash
+java TodoListApp
+```
 
 ## 🗂️ Code Structure
 
