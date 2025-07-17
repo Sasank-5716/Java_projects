@@ -193,8 +193,10 @@ java NumberGuessingGame/NumberGuessingGame
 
 - Enhance UI: Add more styling or features as desired.
 
-
 ___________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________
+
+
 
 # 4. TodoList Application 📝✨ 
 
@@ -210,7 +212,7 @@ A visually appealing **Java Swing To-Do List application** that allows users to 
 - **Friendly UI** 🎨: Clean interface with accessible colors, black text, and playful emoji labels for an uplifting experience.
 
 ## Screenshot
-![TodoListApp](../Assets/TodoListApp.png)
+![TodoListApp](/Assets/TodoListApp.png)
 
 ## 🛠️ How to Get Started
 
