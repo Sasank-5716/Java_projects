@@ -6,6 +6,8 @@
 
 3. Number Guessing Game
 
+4. TodoList Application
+
 
 ___________________________________________________________________________________________________________________________________________________
 
@@ -191,6 +193,11 @@ java NumberGuessingGame/NumberGuessingGame
 
 - Enhance UI: Add more styling or features as desired.
 
-## Credits
-Developed as a beginner-friendly Java Swing project for learning and fun.
+
+___________________________________________________________________________________________________________________________________________________
+
+# 4. TodoList Application
+
+
+
 
