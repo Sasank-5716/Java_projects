@@ -11,6 +11,9 @@ A visually appealing **Java Swing To-Do List application** that allows users to 
 - **Remove Tasks** 🗑️: Select any task and click its **Remove Selected** button or press Delete.
 - **Friendly UI** 🎨: Clean interface with accessible colors, black text, and playful emoji labels for an uplifting experience.
 
+## Screenshot
+![TodoListApp](../Assets/TodoListApp.png)
+
 ## 🛠️ How to Get Started
 
 ### Prerequisites
