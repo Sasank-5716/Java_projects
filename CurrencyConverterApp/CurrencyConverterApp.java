@@ -5,6 +5,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -63,14 +64,29 @@ public class CurrencyConverterApp extends JFrame {
         inputPanel.add(convertButton);
 
         resultLabel = new JLabel("Enter amount and select currencies.");
-        
+
         inputPanel.add(resultLabel);
 
         add(inputPanel, BorderLayout.CENTER);
     }
 
-     private void performConversion() {
-     }
+    private void performConversion() {
+        try {
+            String from = (String) fromCurrency.getSelectedItem();
+            String to = (String) toCurrency.getSelectedItem();
+            double amount = Double.parseDouble(amountField.getText());
+
+            double fromRate = exchangeRates.get(from);
+            double toRate = exchangeRates.get(to);
+
+            double convertedAmount = amount / fromRate * toRate;
+
+            resultLabel.setText(String.format("%.2f %s = %.2f %s", amount, from, convertedAmount, to));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid numeric amount.", "Invalid Input",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     public static void main(String[] args) {
         CurrencyConverterApp app = new CurrencyConverterApp();
