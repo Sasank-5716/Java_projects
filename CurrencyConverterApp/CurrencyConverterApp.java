@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -89,8 +90,9 @@ public class CurrencyConverterApp extends JFrame {
     }
 
     public static void main(String[] args) {
+       SwingUtilities.invokeLater(() -> {
         CurrencyConverterApp app = new CurrencyConverterApp();
         app.setVisible(true);
-    }
+    });
 
 }
