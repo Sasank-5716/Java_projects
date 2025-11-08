@@ -54,13 +54,23 @@ public class CurrencyConverterApp extends JFrame {
         inputPanel.add(amountField);
 
         JButton convertButton = new JButton("Convert");
+        convertButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                performConversion();
+            }
+        });
         inputPanel.add(convertButton);
 
         resultLabel = new JLabel("Enter amount and select currencies.");
+        
         inputPanel.add(resultLabel);
 
         add(inputPanel, BorderLayout.CENTER);
     }
+
+     private void performConversion() {
+     }
 
     public static void main(String[] args) {
         CurrencyConverterApp app = new CurrencyConverterApp();
