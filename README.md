@@ -1,12 +1,67 @@
 # Java Projects
 
-1. Library Management System
+1. Currency Converter App 
 
-2. Simple Banking Application
+2. Library Management System
 
-3. Number Guessing Game
+3. Simple Banking Application
 
-4. TodoList Application
+4. Number Guessing Game
+
+5. TodoList Application
+
+
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+# Currency Converter Java Application
+
+## Overview
+This is a simple Java Swing-based graphical application that converts currency amounts between multiple currencies. It provides a clean and user-friendly interface to select source and target currencies, enter an amount, and get the converted result.
+
+## Features
+- Supports multiple currencies with predefined exchange rates.
+- Easy-to-use interface with dropdowns for currency selection and input field for amount.
+- Displays converted amount with 2 decimal precision.
+- Error handling for invalid amount inputs.
+
+## Technologies Used
+- Java SE (Standard Edition)
+- Swing library for GUI components
+
+## Getting Started
+
+### Prerequisites
+- Java Development Kit (JDK) 11 or higher installed
+- Any Java IDE or a text editor with command-line tools
+
+### Running the Application
+1. Clone or download the repository.
+2. Open a terminal in the project directory.
+3. Compile the source code:
+
+javac CurrencyConverterApp.java
+
+4. Run the compiled program:
+
+java CurrencyConverterApp
+
+5. The Currency Converter window will open. Select currencies, enter an amount and click "Convert".
+
+## Usage
+- Select the currency you want to convert from using the "From Currency" dropdown.
+- Select the currency you want to convert to using the "To Currency" dropdown.
+- Enter the amount you want to convert.
+- Click the "Convert" button.
+- The converted amount will be displayed below.
+
+## Project Structure
+- `CurrencyConverterApp.java`: Main application file containing the UI and logic.
+
+## Future Enhancements
+- Fetch real-time currency exchange rates from an API.
+- Add more currencies.
+- Export conversion results.
+- Improve UI styling.
 
 
 
