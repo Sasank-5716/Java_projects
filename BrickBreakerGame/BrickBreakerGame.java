@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 import java.awt.event.KeyListener;
 import java.util.Timer;
 import java.awt.event.KeyEvent;
+import java.awt.Graphics;
+import java.awt.Color;
 
 public class BrickBreakerGame extends JPanel implements KeyListener {
     private boolean play = false;
@@ -17,6 +19,22 @@ public class BrickBreakerGame extends JPanel implements KeyListener {
         setFocusTraversalKeysEnabled(false);
         timer = new Timer();
         timer.start()
+    }
+
+    public void paint(Graphics g) {
+        // background
+        g.setColor(Color.BLACK);
+        g.fillRect(1, 1, 692, 592);
+
+        // paddle
+        g.setColor(Color.GREEN);
+        g.fillRect(playerX, 550, 100, 8);
+
+        // ball
+        g.setColor(Color.YELLOW);
+        g.fillOval(ballposX, ballposY, 20, 20);
+
+        g.dispose();
     }
 
     private int playerX = 310;
