@@ -1,4 +1,5 @@
 package BrickBreakerGame;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.event.KeyListener;
@@ -18,17 +19,44 @@ public class BrickBreakerGame extends JPanel implements KeyListener {
         timer.start()
     }
 
-     @Override
+    private int playerX = 310;
+    private int ballposX = 120;
+    private int ballposY = 350;
+    private int ballXdir = -1;
+    private int ballYdir = -2;
+
+    @Override
     public void actionPerformed(ActionEvent e) {
         timer.start();
+        if (play) {
+            ballposX += ballXdir;
+            ballposY += ballYdir;
+        }
         repaint();
     }
+
     @Override
-    public void keyTyped(KeyEvent e) {}
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            if (playerX < 600)
+                playerX += 20;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            if (playerX > 10)
+                playerX -= 20;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            play = true;
+        }
+    }
+
     @Override
-    public void keyReleased(KeyEvent e) {}
+    public void keyTyped(KeyEvent e) {
+    }
+
     @Override
-    public void keyPressed(KeyEvent e) {}
+    public void keyReleased(KeyEvent e) {
+    }
 
     public static void main(String[] args) {
         JFrame obj = new JFrame();
