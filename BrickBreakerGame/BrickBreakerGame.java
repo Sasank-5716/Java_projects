@@ -7,6 +7,9 @@ import java.util.Timer;
 import java.awt.event.KeyEvent;
 import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.BasicStroke;
+import java.awt.Color;
 
 public class BrickBreakerGame extends JPanel implements KeyListener {
     private boolean play = false;
@@ -86,4 +89,21 @@ public class BrickBreakerGame extends JPanel implements KeyListener {
         obj.add(gamePlay);
         obj.setVisible(true);
     }
+}
+
+public class MapGenerator {
+    public int[][] map;
+    public int brickWidth;
+    public int brickHeight;
+
+    public MapGenerator(int row, int col) {
+        map = new int[row][col];
+        for (int[] rowArr : map) {
+            java.util.Arrays.fill(rowArr, 1);
+        }
+        brickWidth = 540 / col;
+        brickHeight = 150 / row;
+    }
+
+    
 }
