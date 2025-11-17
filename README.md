@@ -38,12 +38,14 @@ This is a simple Java Swing-based graphical application that converts currency a
 1. Clone or download the repository.
 2. Open a terminal in the project directory.
 3. Compile the source code:
-
+```bash
 javac CurrencyConverterApp.java
+```
 
 4. Run the compiled program:
-
+```bash
 java CurrencyConverterApp
+```
 
 5. The Currency Converter window will open. Select currencies, enter an amount and click "Convert".
 
