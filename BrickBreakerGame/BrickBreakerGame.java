@@ -57,6 +57,29 @@ public class BrickBreakerGame extends JPanel implements KeyListener {
         g.setColor(Color.YELLOW);
         g.fillOval(ballposX, ballposY, 20, 20);
 
+        if (ballposY > 570) {
+        play = false;
+        ballXdir = 0;
+        ballYdir = 0;
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Segoe UI", Font.BOLD, 40));
+        g.drawString("Game Over, Score: " + score, 150, 300);
+
+        g.setFont(new Font("Segoe UI", Font.BOLD, 20));
+        g.drawString("Press Enter to Restart", 230, 350);
+        }
+
+        if (totalBricks <= 0) {
+            play = false;
+            ballXdir = 0;
+            ballYdir = 0;
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Segoe UI", Font.BOLD, 40));
+            g.drawString("You Won, Score: " + score, 190, 300);
+
+            g.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            g.drawString("Press Enter to Restart", 230, 350);
+        }
         g.dispose();
     }
 
