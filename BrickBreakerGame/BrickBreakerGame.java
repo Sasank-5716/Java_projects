@@ -10,13 +10,17 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics2D;
 
 public class BrickBreakerGame extends JPanel implements KeyListener {
     private boolean play = false;
     private Timer timer;
     private int delay = 8;
 
+    private MapGenerator map;
+
     public BrickBreakerGame() {
+        map = new MapGenerator(3, 7);
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
@@ -25,9 +29,12 @@ public class BrickBreakerGame extends JPanel implements KeyListener {
     }
 
     public void paint(Graphics g) {
+        super.paint(g);
         // background
         g.setColor(Color.BLACK);
         g.fillRect(1, 1, 692, 592);
+
+         map.draw((Graphics2D) g);
 
         // paddle
         g.setColor(Color.GREEN);
