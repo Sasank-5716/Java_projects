@@ -58,15 +58,15 @@ public class BrickBreakerGame extends JPanel implements KeyListener {
         g.fillOval(ballposX, ballposY, 20, 20);
 
         if (ballposY > 570) {
-        play = false;
-        ballXdir = 0;
-        ballYdir = 0;
-        g.setColor(Color.WHITE);
-        g.setFont(new Font("Segoe UI", Font.BOLD, 40));
-        g.drawString("Game Over, Score: " + score, 150, 300);
+            play = false;
+            ballXdir = 0;
+            ballYdir = 0;
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Segoe UI", Font.BOLD, 40));
+            g.drawString("Game Over, Score: " + score, 150, 300);
 
-        g.setFont(new Font("Segoe UI", Font.BOLD, 20));
-        g.drawString("Press Enter to Restart", 230, 350);
+            g.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            g.drawString("Press Enter to Restart", 230, 350);
         }
 
         if (totalBricks <= 0) {
@@ -144,15 +144,30 @@ public class BrickBreakerGame extends JPanel implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            if (playerX < 600)
-                playerX += 20;
+            if (playerX >= 600)
+                playerX = 600;
+            else
+                moveRight();
         }
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            if (playerX > 10)
-                playerX -= 20;
+            if (playerX < 10)
+                playerX = 10;
+            else
+                moveLeft();
         }
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            play = true;
+            if (!play) {
+                play = true;
+                ballposX = 120;
+                ballposY = 350;
+                ballXdir = -1;
+                ballYdir = -2;
+                playerX = 310;
+                score = 0;
+                totalBricks = 21;
+                map = new MapGenerator(3, 7);
+                repaint();
+            }
         }
     }
 
@@ -162,6 +177,16 @@ public class BrickBreakerGame extends JPanel implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+    }
+
+    public void moveRight() {
+        play = true;
+        playerX += 20;
+    }
+
+    public void moveLeft() {
+        play = true;
+        playerX -= 20;
     }
 
     public static void main(String[] args) {
