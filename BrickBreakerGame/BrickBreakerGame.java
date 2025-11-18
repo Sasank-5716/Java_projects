@@ -36,7 +36,7 @@ public class BrickBreakerGame extends JPanel implements KeyListener, ActionListe
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         timer = new Timer(delay, this);
-        timer.start()
+        timer.start();
     }
 
     public void paint(Graphics g) {
@@ -201,7 +201,7 @@ public class BrickBreakerGame extends JPanel implements KeyListener, ActionListe
     }
 }
 
-public class MapGenerator {
+class MapGenerator {
     public int[][] map;
     public int brickWidth;
     public int brickHeight;
