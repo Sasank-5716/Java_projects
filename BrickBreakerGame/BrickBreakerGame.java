@@ -12,6 +12,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.Font;
 
 public class BrickBreakerGame extends JPanel implements KeyListener {
     private boolean play = false;
@@ -36,6 +37,17 @@ public class BrickBreakerGame extends JPanel implements KeyListener {
         g.fillRect(1, 1, 692, 592);
 
         map.draw((Graphics2D) g);
+
+        // borders
+        g.setColor(new Color(255, 215, 0));
+        g.fillRect(0, 0, 3, 592);
+        g.fillRect(0, 0, 692, 3);
+        g.fillRect(691, 0, 3, 592);
+
+        // score
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Segoe UI", Font.BOLD, 25));
+        g.drawString("Score: " + score, 550, 30);
 
         // paddle
         g.setColor(Color.GREEN);
