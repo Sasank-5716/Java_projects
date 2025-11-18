@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.event.KeyListener;
 import java.util.Timer;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.Graphics;
 import java.awt.Color;
@@ -14,12 +16,21 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Font;
 
-public class BrickBreakerGame extends JPanel implements KeyListener {
+public class BrickBreakerGame extends JPanel implements KeyListener, ActionListener {
     private boolean play = false;
     private Timer timer;
     private int delay = 8;
 
     private MapGenerator map;
+
+    private int playerX = 310;
+    private int ballposX = 120;
+    private int ballposY = 350;
+    private int ballXdir = -1;
+    private int ballYdir = -2;
+
+    private int score = 0;
+    private int totalBricks = 21;
 
     public BrickBreakerGame() {
         map = new MapGenerator(3, 7);
@@ -82,15 +93,6 @@ public class BrickBreakerGame extends JPanel implements KeyListener {
         }
         g.dispose();
     }
-
-    private int playerX = 310;
-    private int ballposX = 120;
-    private int ballposY = 350;
-    private int ballXdir = -1;
-    private int ballYdir = -2;
-
-    private int score = 0;
-    private int totalBricks = 21;
 
     @Override
     public void actionPerformed(ActionEvent e) {
