@@ -24,6 +24,9 @@ This project is a fun and interactive 2D game where the player controls a paddle
 
 The UI features smooth animation with Java's Swing Timer, colorful bricks and ball, and clear score display.
 
+## 🖥️ Screenshots
+![BrickBreakerGame](/Assets/BrickBreakerGame.png)
+
 ## Features
 
   - Paddle controlled by left and right arrow keys.
@@ -80,6 +83,9 @@ ________________________________________________________________________________
 
 ## Overview
 This is a simple Java Swing-based graphical application that converts currency amounts between multiple currencies. It provides a clean and user-friendly interface to select source and target currencies, enter an amount, and get the converted result.
+
+## 🖥️ Screenshots
+![CurrencyConverterApp](/Assets/CurrencyConverterApp.png)
 
 ## Features
 - Supports multiple currencies with predefined exchange rates.
