@@ -76,7 +76,7 @@ java BrickBreakerGame.BrickBreakerGame
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-# Currency Converter Java Application
+# 2. Currency Converter Java Application
 
 ## Overview
 This is a simple Java Swing-based graphical application that converts currency amounts between multiple currencies. It provides a clean and user-friendly interface to select source and target currencies, enter an amount, and get the converted result.
@@ -135,7 +135,7 @@ ________________________________________________________________________________
 
 
 
-# 1. 📚 Library Management System (Java Swing)
+# 3. 📚 Library Management System (Java Swing)
 A modern, user-friendly Library Management System built with Java Swing.
 Easily manage books, members, and transactions with a beautiful graphical interface.
 
@@ -192,7 +192,7 @@ ________________________________________________________________________________
 
 
 
-# 2. 🏦 Simple Banking Application (Java)
+# 4. 🏦 Simple Banking Application (Java)
 A straightforward Java application to manage basic banking operations such as account creation, deposits, withdrawals, and balance checks—all via a user-friendly interface.
 
 ## ✨ Features
@@ -257,7 +257,7 @@ ________________________________________________________________________________
 
 
 
-# 3. Number Guessing Game (Java Swing)
+# 5. Number Guessing Game (Java Swing)
 A simple and interactive Number Guessing Game built with Java Swing. The game challenges players to guess a randomly generated number between 1 and 100, providing helpful feedback and a celebratory animation when the correct number is guessed.
 
 ## Features
@@ -331,7 +331,7 @@ ________________________________________________________________________________
 
 
 
-# 4. TodoList Application 📝✨ 
+# 6. TodoList Application 📝✨ 
 
 A visually appealing **Java Swing To-Do List application** that allows users to add, view, mark as completed, and remove tasks — all with a splash of fun emojis! Tasks are separated into **Pending** and **Completed** sections. This app showcases the use of Java collections, custom renderers, Swing components, and an intuitive graphic user interface.
 
