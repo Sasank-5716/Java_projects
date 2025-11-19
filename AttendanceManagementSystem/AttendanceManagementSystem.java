@@ -21,6 +21,18 @@ public class AttendanceManagementSystem extends JFrame {
         topPanel.setBackground(new Color(34, 49, 63));
         topPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
         topPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
+
+        JButton btnAddAttendance = new JButton("Add Attendance");
+        btnAddAttendance.setFocusPainted(false);
+        btnAddAttendance.setBackground(new Color(41, 128, 185));
+        btnAddAttendance.setForeground(Color.white);
+        btnAddAttendance.setFont(new Font("Arial", Font.BOLD, 14));
+        btnAddAttendance.setPreferredSize(new Dimension(140, 35));
+        btnAddAttendance.setBorder(BorderFactory.createEmptyBorder(6, 12, 6, 12));
+        btnAddAttendance.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnAddAttendance.addActionListener(e -> cardLayout.show(mainPanel, "addAttendance"));
+        topPanel.add(btnAddAttendance);
+
     }
 
     public static void main(String[] args) {
