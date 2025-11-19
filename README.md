@@ -1,15 +1,78 @@
 # Java Projects
 
-1. Currency Converter App 
+1. Brick Breaker Game
 
-2. Library Management System
+2. Currency Converter App 
 
-3. Simple Banking Application
+3. Library Management System
 
-4. Number Guessing Game
+4. Simple Banking Application
 
-5. TodoList Application
+5. Number Guessing Game
 
+6. TodoList Application
+
+
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+# 1. Brick Breaker Game
+
+A classic Brick Breaker arcade game implemented in Java Swing with a modern and stylish user interface.
+
+## Project Overview
+
+This project is a fun and interactive 2D game where the player controls a paddle to bounce a ball and break bricks arranged in rows. The game tracks scores, supports winning and game-over scenarios, and allows restarting the game using the keyboard.
+
+The UI features smooth animation with Java's Swing Timer, colorful bricks and ball, and clear score display.
+
+## Features
+
+  - Paddle controlled by left and right arrow keys.
+
+  - Ball bounces off paddle, walls, and bricks.
+
+  - Bricks break upon ball collision and increase score.
+
+  - Game over and winning screen with restart prompt.
+
+  - Modern UI colors and fonts using Java AWT and Swing.
+
+  - Simple and easy-to-understand Java code suitable for learning game programming basics.
+
+## Technologies Used
+
+  - Java (version 8 or above recommended)
+
+  - Java Swing for GUI rendering
+
+  - AWT for event handling and 2D drawing
+
+## How to Run
+
+  1. Ensure JDK is installed and javac and java commands are accessible.
+
+  2. The source files should be placed inside the folder named BrickBreakerGame (matching the package name).
+
+  3. From the parent directory of BrickBreakerGame, compile:
+
+```bash
+javac BrickBreakerGame/BrickBreakerGame.java
+```
+
+  4. Run the game:
+
+```bash
+java BrickBreakerGame.BrickBreakerGame
+```
+
+  5. Use left/right arrow keys to move the paddle. Press Enter to start or restart the game.
+
+## Controls
+
+  - Left Arrow: Move paddle left
+
+  - Right Arrow: Move paddle right
+
+  - Enter: Start or restart the game after game over or winning
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
