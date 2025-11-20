@@ -33,6 +33,20 @@ public class AttendanceManagementSystem extends JFrame {
         btnAddAttendance.addActionListener(e -> cardLayout.show(mainPanel, "addAttendance"));
         topPanel.add(btnAddAttendance);
 
+        JButton btnViewRecords = new JButton("View Records");
+        btnViewRecords.setFocusPainted(false);
+        btnViewRecords.setBackground(new Color(41, 128, 185));
+        btnViewRecords.setForeground(Color.white);
+        btnViewRecords.setFont(new Font("Arial", Font.BOLD, 14));
+        btnViewRecords.setPreferredSize(new Dimension(140, 35));
+        btnViewRecords.setBorder(BorderFactory.createEmptyBorder(6, 12, 6, 12));
+        btnViewRecords.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnViewRecords.addActionListener(e -> {
+            cardLayout.show(mainPanel, "viewRecords");
+            refreshTable();
+        });
+        topPanel.add(btnViewRecords);
+
     }
 
     public static void main(String[] args) {
