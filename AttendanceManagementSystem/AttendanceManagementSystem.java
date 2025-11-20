@@ -62,6 +62,17 @@ public class AttendanceManagementSystem extends JFrame {
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
+        JLabel lblName = new JLabel("Student Name:");
+        lblName.setFont(new Font("Arial", Font.PLAIN, 14));
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        addPanel.add(lblName, gbc);
+
+        tfName = new JTextField(20);
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        addPanel.add(tfName, gbc);
+
     }
 
     public static void main(String[] args) {
