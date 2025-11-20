@@ -7,6 +7,8 @@ import java.awt.*;
 
 public class AttendanceManagementSystem extends JFrame {
     private JPanel topPanel;
+    private JPanel mainPanel;
+    private CardLayout cardLayout;
 
     public AttendanceManagementSystem() {
         setTitle("Attendance Management System");
@@ -47,6 +49,12 @@ public class AttendanceManagementSystem extends JFrame {
         });
         topPanel.add(btnViewRecords);
 
+    }
+
+    private void createMainPanel() {
+        mainPanel = new JPanel();
+        cardLayout = new CardLayout();
+        mainPanel.setLayout(cardLayout);
     }
 
     public static void main(String[] args) {
