@@ -84,6 +84,17 @@ public class AttendanceManagementSystem extends JFrame {
         gbc.gridy = 1;
         addPanel.add(tfTotalClasses, gbc);
 
+        JLabel lblClassesAttended = new JLabel("Classes Attended:");
+        lblClassesAttended.setFont(new Font("Arial", Font.PLAIN, 14));
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        addPanel.add(lblClassesAttended, gbc);
+
+        tfClassesAttended = new JTextField(20);
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        addPanel.add(tfClassesAttended, gbc);
+
     }
 
     public static void main(String[] args) {
