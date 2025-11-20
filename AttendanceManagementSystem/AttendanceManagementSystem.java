@@ -55,6 +55,13 @@ public class AttendanceManagementSystem extends JFrame {
         mainPanel = new JPanel();
         cardLayout = new CardLayout();
         mainPanel.setLayout(cardLayout);
+
+        JPanel addPanel = new JPanel(new GridBagLayout());
+        addPanel.setBackground(Color.white);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+
     }
 
     public static void main(String[] args) {
