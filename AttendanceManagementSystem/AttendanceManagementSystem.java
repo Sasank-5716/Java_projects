@@ -95,6 +95,17 @@ public class AttendanceManagementSystem extends JFrame {
         gbc.gridy = 2;
         addPanel.add(tfClassesAttended, gbc);
 
+        JButton btnAdd = new JButton("Add Record");
+        btnAdd.setBackground(new Color(39, 174, 96));
+        btnAdd.setForeground(Color.white);
+        btnAdd.setFont(new Font("Arial", Font.BOLD, 16));
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 2;
+        addPanel.add(btnAdd, gbc);
+
+        btnAdd.addActionListener(e -> addAttendance());
+
     }
 
     public static void main(String[] args) {
