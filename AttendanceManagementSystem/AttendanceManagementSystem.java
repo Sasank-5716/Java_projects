@@ -126,6 +126,44 @@ public class AttendanceManagementSystem extends JFrame {
 
     }
 
+    private void addAttendance() {
+        String name = tfName.getText().trim();
+        String totalClassesStr = tfTotalClasses.getText().trim();
+        String classesAttendedStr = tfClassesAttended.getText().trim();
+
+        if (name.isEmpty() || totalClassesStr.isEmpty() || classesAttendedStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill all fields.", "Validation Error",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int totalClasses, classesAttended;
+        try {
+            totalClasses = Integer.parseInt(totalClassesStr);
+            classesAttended = Integer.parseInt(classesAttendedStr);
+            if (totalClasses < 0 || classesAttended < 0 || classesAttended > totalClasses) {
+                JOptionPane.showMessageDialog(this,
+                        "Please enter valid numbers. Classes attended cannot exceed total classes.", "Validation Error",
+                        JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter valid numeric values.", "Validation Error",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        StudentAttendance record = new StudentAttendance(name, totalClasses, classesAttended);
+        attendanceList.add(record);
+
+        JOptionPane.showMessageDialog(this, "Attendance record added successfully!", "Success",
+                JOptionPane.INFORMATION_MESSAGE);
+
+        tfName.setText("");
+        tfTotalClasses.setText("");
+        tfClassesAttended.setText("");
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             AttendanceManagementSystem app = new AttendanceManagementSystem();
