@@ -108,6 +108,9 @@ public class AttendanceManagementSystem extends JFrame {
 
         mainPanel.add(addPanel, "addAttendance");
 
+        // View Records Panel
+        JPanel viewPanel = new JPanel(new BorderLayout());
+        viewPanel.setBackground(Color.white);
 
     }
 
