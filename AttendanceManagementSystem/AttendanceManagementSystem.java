@@ -177,6 +177,22 @@ public class AttendanceManagementSystem extends JFrame {
         }
     }
 
+    class StudentAttendance {
+        String name;
+        int totalClasses;
+        int classesAttended;
+
+        public StudentAttendance(String name, int totalClasses, int classesAttended) {
+            this.name = name;
+            this.totalClasses = totalClasses;
+            this.classesAttended = classesAttended;
+        }
+
+        public double getAttendancePercentage() {
+            return ((double) classesAttended / totalClasses) * 100.0;
+        }
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             AttendanceManagementSystem app = new AttendanceManagementSystem();
