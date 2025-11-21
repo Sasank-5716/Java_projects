@@ -106,6 +106,9 @@ public class AttendanceManagementSystem extends JFrame {
 
         btnAdd.addActionListener(e -> addAttendance());
 
+        mainPanel.add(addPanel, "addAttendance");
+
+
     }
 
     public static void main(String[] args) {
