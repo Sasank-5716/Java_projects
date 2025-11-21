@@ -5,11 +5,18 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class AttendanceManagementSystem extends JFrame {
     private JPanel topPanel;
     private JPanel mainPanel;
     private CardLayout cardLayout;
+
+    private JTextField tfName, tfTotalClasses, tfClassesAttended;
+    private JTable attendanceTable;
+    private DefaultTableModel tableModel;
+
+    private java.util.List<StudentAttendance> attendanceList = new ArrayList<>();
 
     public AttendanceManagementSystem() {
         setTitle("Attendance Management System");
