@@ -164,6 +164,19 @@ public class AttendanceManagementSystem extends JFrame {
         tfClassesAttended.setText("");
     }
 
+    private void refreshTable() {
+        tableModel.setRowCount(0);
+        for (StudentAttendance record : attendanceList) {
+            Object[] row = new Object[] {
+                    record.name,
+                    record.totalClasses,
+                    record.classesAttended,
+                    String.format("%.2f%%", record.getAttendancePercentage())
+            };
+            tableModel.addRow(row);
+        }
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             AttendanceManagementSystem app = new AttendanceManagementSystem();
