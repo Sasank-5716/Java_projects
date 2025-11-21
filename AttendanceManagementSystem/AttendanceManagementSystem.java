@@ -120,6 +120,10 @@ public class AttendanceManagementSystem extends JFrame {
         JScrollPane scrollPane = new JScrollPane(attendanceTable);
         viewPanel.add(scrollPane, BorderLayout.CENTER);
 
+        mainPanel.add(viewPanel, "viewRecords");
+
+        cardLayout.show(mainPanel, "addAttendance");
+
     }
 
     public static void main(String[] args) {
