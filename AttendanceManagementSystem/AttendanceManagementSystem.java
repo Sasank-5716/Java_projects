@@ -2,6 +2,7 @@ package AttendanceManagementSystem;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import java.awt.*;
 
@@ -111,6 +112,13 @@ public class AttendanceManagementSystem extends JFrame {
         // View Records Panel
         JPanel viewPanel = new JPanel(new BorderLayout());
         viewPanel.setBackground(Color.white);
+        tableModel = new DefaultTableModel(new Object[] { "Name", "Total Classes", "Classes Attended", "Attendance %" },
+                0);
+        attendanceTable = new JTable(tableModel);
+        attendanceTable.setFillsViewportHeight(true);
+        attendanceTable.setRowHeight(25);
+        JScrollPane scrollPane = new JScrollPane(attendanceTable);
+        viewPanel.add(scrollPane, BorderLayout.CENTER);
 
     }
 
