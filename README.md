@@ -22,6 +22,11 @@ ________________________________________________________________________________
 
 A simple Java Swing-based Attendance Management System with a clean and modern user interface. It allows users to add attendance records for students and view the recorded attendance in a tabular format.
 
+## 🖥️ Screenshots
+![Attendence Management System](/Assets/AttendenceManagementSystem01.png)
+![Attendence Management System](/Assets/AttendenceManagementSystem02.png)
+![Attendence Management System](/Assets/AttendenceManagementSystem03.png)
+
 ## Features
 
   - User-friendly GUI with buttons located on the top for easy navigation
