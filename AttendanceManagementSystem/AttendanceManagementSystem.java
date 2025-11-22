@@ -24,6 +24,12 @@ public class AttendanceManagementSystem extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
+
+        createTopPanel();
+        createMainPanel();
+
+        add(topPanel, BorderLayout.NORTH);
+        add(mainPanel, BorderLayout.CENTER);
     }
 
     private void createTopPanel() {
