@@ -1,20 +1,22 @@
 # Java Projects
 
-1. Brick Breaker Game
+1. Attendence Management System
 
-2. Currency Converter App 
+2. Brick Breaker Game
 
-3. Library Management System
+3. Currency Converter App 
 
-4. Simple Banking Application
+4. Library Management System
 
-5. Number Guessing Game
+5. Simple Banking Application
 
-6. TodoList Application
+6. Number Guessing Game
+
+7. TodoList Application
 
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-# 1. Brick Breaker Game
+# 2. Brick Breaker Game
 
 A classic Brick Breaker arcade game implemented in Java Swing with a modern and stylish user interface.
 
@@ -79,7 +81,7 @@ java BrickBreakerGame.BrickBreakerGame
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-# 2. Currency Converter Java Application
+# 3. Currency Converter Java Application
 
 ## Overview
 This is a simple Java Swing-based graphical application that converts currency amounts between multiple currencies. It provides a clean and user-friendly interface to select source and target currencies, enter an amount, and get the converted result.
@@ -141,7 +143,7 @@ ________________________________________________________________________________
 
 
 
-# 3. 📚 Library Management System (Java Swing)
+# 4. 📚 Library Management System (Java Swing)
 A modern, user-friendly Library Management System built with Java Swing.
 Easily manage books, members, and transactions with a beautiful graphical interface.
 
@@ -198,7 +200,7 @@ ________________________________________________________________________________
 
 
 
-# 4. 🏦 Simple Banking Application (Java)
+# 5. 🏦 Simple Banking Application (Java)
 A straightforward Java application to manage basic banking operations such as account creation, deposits, withdrawals, and balance checks—all via a user-friendly interface.
 
 ## ✨ Features
@@ -263,7 +265,7 @@ ________________________________________________________________________________
 
 
 
-# 5. Number Guessing Game (Java Swing)
+# 6. Number Guessing Game (Java Swing)
 A simple and interactive Number Guessing Game built with Java Swing. The game challenges players to guess a randomly generated number between 1 and 100, providing helpful feedback and a celebratory animation when the correct number is guessed.
 
 ## Features
@@ -337,7 +339,7 @@ ________________________________________________________________________________
 
 
 
-# 6. TodoList Application 📝✨ 
+# 7. TodoList Application 📝✨ 
 
 A visually appealing **Java Swing To-Do List application** that allows users to add, view, mark as completed, and remove tasks — all with a splash of fun emojis! Tasks are separated into **Pending** and **Completed** sections. This app showcases the use of Java collections, custom renderers, Swing components, and an intuitive graphic user interface.
 
