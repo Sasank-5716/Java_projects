@@ -14,6 +14,68 @@
 
 7. TodoList Application
 
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+# 1. Attendence Management System
+
+## Overview
+
+A simple Java Swing-based Attendance Management System with a clean and modern user interface. It allows users to add attendance records for students and view the recorded attendance in a tabular format.
+
+## Features
+
+  - User-friendly GUI with buttons located on the top for easy navigation
+
+  - Add student attendance with input validation
+
+  - View attendance records in a sortable table with attendance percentage calculation
+
+  - Responsive UI using CardLayout to switch between Add Attendance and View Records panels
+
+## Getting Started
+### Prerequisites
+
+  - Java Development Kit (JDK) 8 or above
+
+  - An IDE like IntelliJ IDEA, Eclipse, or use of command-line tools
+
+### Installation
+
+  1. Clone or download the project from the repository.
+
+  2. Navigate to the project directory.
+
+### Running the Project
+
+Compile and run from the command line within the project directory:
+
+```bash
+javac AttendanceManagementSystem/AttendanceManagementSystem.java
+```
+```bash
+java AttendanceManagementSystem.AttendanceManagementSystem
+```
+
+## Usage
+
+  - Click Add Attendance button on top to switch to the input form.
+
+  - Enter Student Name, Total Classes Held, and Classes Attended.
+
+  - Click Add Record to save the data.
+
+  - Click View Records to see the attendance list with calculated percentage.
+
+## Future Enhancements
+
+  - Persistence support with a database (MySQL, SQLite)
+
+  - Export attendance reports to CSV or PDF
+
+  - User authentication and role management
+
+  - Enhanced UI/UX with themes and animations
+
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 # 2. Brick Breaker Game
