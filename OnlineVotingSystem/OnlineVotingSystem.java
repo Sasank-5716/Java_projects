@@ -33,6 +33,8 @@ class User {
     private String username;
     private String password;
     private Role role;
+    private boolean hasVoted = false;
+    private String votedCandidate = null;
 
     public User(String username, String password, Role role) {
         this.username = username;
@@ -40,8 +42,31 @@ class User {
         this.role = role;
     }
 
-    public String getUsername() { return username; }
-    public String getPassword() { return password; }
-    public Role getRole() { return role; }
-}
+    public String getUsername() {
+        return username;
+    }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public boolean hasVoted() {
+        return hasVoted;
+    }
+
+    public void setVoted(boolean voted) {
+        this.hasVoted = voted;
+    }
+
+    public String getVotedCandidate() {
+        return votedCandidate;
+    }
+
+    public void setVotedCandidate(String candidate) {
+        this.votedCandidate = candidate;
+    }
+}
