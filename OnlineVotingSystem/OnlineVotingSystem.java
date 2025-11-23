@@ -22,3 +22,9 @@ public class OnlineVotingSystem extends JFrame {
     }
 
 }
+
+// User roles
+enum Role {
+    ADMIN, VOTER
+}
+
