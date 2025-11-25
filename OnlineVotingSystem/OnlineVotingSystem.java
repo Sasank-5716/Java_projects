@@ -84,6 +84,18 @@ class UserManager {
         users.put(username, new User(username, password, Role.VOTER));
         return true;
     }
+
+    public User authenticate(String username, String password) {
+        User user = users.get(username);
+        if (user != null && user.getPassword().equals(password)) {
+            return user;
+        }
+        return null;
+    }
+
+    public Collection<User> getAllUsers() {
+        return users.values();
+    }
 }
 
 // Candidate class with vote count
