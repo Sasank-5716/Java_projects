@@ -71,6 +71,21 @@ class User {
     }
 }
 
+class UserManager {
+    private Map<String, User> users = new ConcurrentHashMap<>();
+
+    public UserManager() {
+        users.put("admin", new User("admin", "admin", Role.ADMIN));
+    }
+
+    public boolean registerUser(String username, String password) {
+        if (users.containsKey(username))
+            return false;
+        users.put(username, new User(username, password, Role.VOTER));
+        return true;
+    }
+}
+
 // Candidate class with vote count
 class Candidate {
     private String name;
@@ -81,7 +96,15 @@ class Candidate {
         this.votes = 0;
     }
 
-    public String getName() { return name; }
-    public int getVotes() { return votes; }
-    public void incrementVotes() { votes++; }
+    public String getName() {
+        return name;
+    }
+
+    public int getVotes() {
+        return votes;
+    }
+
+    public void incrementVotes() {
+        votes++;
+    }
 }
