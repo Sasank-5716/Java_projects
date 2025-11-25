@@ -141,4 +141,19 @@ class ElectionManager {
     public Collection<Candidate> getCandidates() {
         return candidates.values();
     }
+
+    public void vote(String candidateName) {
+        Candidate candidate = candidates.get(candidateName);
+        if (candidate != null) {
+            candidate.incrementVotes();
+        }
+    }
+
+    public Map<String, Integer> getResults() {
+        Map<String, Integer> results = new LinkedHashMap<>();
+        for (Candidate c : candidates.values()) {
+            results.put(c.getName(), c.getVotes());
+        }
+        return results;
+    }
 }
