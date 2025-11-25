@@ -122,3 +122,23 @@ class Candidate {
         votes++;
     }
 }
+
+class ElectionManager {
+    private Map<String, Candidate> candidates = new LinkedHashMap<>();
+
+    public ElectionManager() {
+        addCandidate("Candidate A");
+        addCandidate("Candidate B");
+        addCandidate("Candidate C");
+    }
+
+    public void addCandidate(String name) {
+        if (!candidates.containsKey(name)) {
+            candidates.put(name, new Candidate(name));
+        }
+    }
+
+    public Collection<Candidate> getCandidates() {
+        return candidates.values();
+    }
+}
