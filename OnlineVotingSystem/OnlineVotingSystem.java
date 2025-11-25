@@ -71,33 +71,6 @@ class User {
     }
 }
 
-class UserManager {
-    private Map<String, User> users = new ConcurrentHashMap<>();
-
-    public UserManager() {
-        users.put("admin", new User("admin", "admin", Role.ADMIN));
-    }
-
-    public boolean registerUser(String username, String password) {
-        if (users.containsKey(username))
-            return false;
-        users.put(username, new User(username, password, Role.VOTER));
-        return true;
-    }
-
-    public User authenticate(String username, String password) {
-        User user = users.get(username);
-        if (user != null && user.getPassword().equals(password)) {
-            return user;
-        }
-        return null;
-    }
-
-    public Collection<User> getAllUsers() {
-        return users.values();
-    }
-}
-
 // Candidate class with vote count
 class Candidate {
     private String name;
