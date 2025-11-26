@@ -26,6 +26,13 @@ public class OnlineVotingSystem extends JFrame {
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
 
+        // Initialize panels
+        LoginPanel loginPanel = new LoginPanel(this);
+        RegistrationPanel registrationPanel = new RegistrationPanel(this);
+
+        mainPanel.add(loginPanel, "Login");
+        mainPanel.add(registrationPanel, "Register");
+
         add(mainPanel);
         cardLayout.show(mainPanel, "Login");
     }
@@ -280,7 +287,7 @@ class LoginPanel extends JPanel {
     }
 }
 
-//Registration UI panel
+// Registration UI panel
 class RegistrationPanel extends JPanel {
     private OnlineVotingSystem app;
 
