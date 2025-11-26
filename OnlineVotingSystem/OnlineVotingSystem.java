@@ -381,3 +381,51 @@ class RegistrationPanel extends JPanel {
         });
     }
 }
+
+// AdminPanel
+class AdminPanel extends JPanel {
+    private OnlineVotingSystem app;
+
+    private JTable tblCandidates;
+    private CandidateTableModel candidateModel;
+    private JTextField txtCandidateName;
+    private JButton btnAddCandidate, btnLogout;
+    private JTextArea txtResults;
+
+    public AdminPanel(OnlineVotingSystem app) {
+        this.app = app;
+        setLayout(new BorderLayout(10, 10));
+        setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        JLabel lblTitle = new JLabel("ADMIN PANEL - Manage Candidates & View Results");
+        lblTitle.setFont(new Font("Arial", Font.BOLD, 20));
+        add(lblTitle, BorderLayout.NORTH);
+
+        candidateModel = new CandidateTableModel();
+        tblCandidates = new JTable(candidateModel);
+
+        JPanel centerPanel = new JPanel(new BorderLayout(5, 5));
+        centerPanel.add(new JScrollPane(tblCandidates), BorderLayout.CENTER);
+
+        JPanel addPanel = new JPanel(new FlowLayout());
+        txtCandidateName = new JTextField(20);
+        btnAddCandidate = new JButton("Add Candidate");
+        addPanel.add(new JLabel("Candidate Name:"));
+        addPanel.add(txtCandidateName);
+        addPanel.add(btnAddCandidate);
+
+        centerPanel.add(addPanel, BorderLayout.SOUTH);
+        add(centerPanel, BorderLayout.CENTER);
+
+        txtResults = new JTextArea(8, 40);
+        txtResults.setEditable(false);
+        txtResults.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 14));
+        JScrollPane scrollResults = new JScrollPane(txtResults);
+        scrollResults.setBorder(BorderFactory.createTitledBorder("Current Voting Results"));
+        add(scrollResults, BorderLayout.SOUTH);
+
+        btnLogout = new JButton("Logout");
+        add(btnLogout, BorderLayout.EAST);
+
+    }
+}
