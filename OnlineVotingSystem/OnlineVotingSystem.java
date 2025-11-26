@@ -7,11 +7,27 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class OnlineVotingSystem extends JFrame {
+    CardLayout cardLayout;
+    JPanel mainPanel;
+
+    UserManager userManager;
+    ElectionManager electionManager;
+    User currentUser;
+
     public OnlineVotingSystem() {
         setTitle("Online Voting System");
         setSize(700, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+
+        userManager = new UserManager();
+        electionManager = new ElectionManager();
+
+        cardLayout = new CardLayout();
+        mainPanel = new JPanel(cardLayout);
+
+        add(mainPanel);
+        cardLayout.show(mainPanel, "Login");
     }
 
     public static void main(String[] args) {
