@@ -279,3 +279,98 @@ class LoginPanel extends JPanel {
         lblStatus.setText(" ");
     }
 }
+
+//Registration UI panel
+class RegistrationPanel extends JPanel {
+    private OnlineVotingSystem app;
+
+    private JTextField txtUsername;
+    private JPasswordField txtPassword, txtConfirmPassword;
+    private JButton btnSubmit, btnBack;
+    private JLabel lblStatus;
+
+    public RegistrationPanel(OnlineVotingSystem app) {
+        this.app = app;
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        JLabel lblTitle = new JLabel("REGISTER NEW USER");
+        lblTitle.setFont(new Font("Arial", Font.BOLD, 22));
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2;
+        gbc.insets = new Insets(10, 10, 20, 10);
+        add(lblTitle, gbc);
+
+        gbc.gridwidth = 1;
+        gbc.insets = new Insets(5, 10, 5, 10);
+
+        gbc.gridy++;
+        add(new JLabel("Username:"), gbc);
+        txtUsername = new JTextField(15);
+        gbc.gridx = 1;
+        add(txtUsername, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy++;
+        add(new JLabel("Password:"), gbc);
+        txtPassword = new JPasswordField(15);
+        gbc.gridx = 1;
+        add(txtPassword, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy++;
+        add(new JLabel("Confirm Password:"), gbc);
+        txtConfirmPassword = new JPasswordField(15);
+        gbc.gridx = 1;
+        add(txtConfirmPassword, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy++;
+        gbc.gridwidth = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
+
+        btnSubmit = new JButton("Register");
+        btnBack = new JButton("Back");
+        JPanel panelBtns = new JPanel();
+        panelBtns.add(btnSubmit);
+        panelBtns.add(btnBack);
+        add(panelBtns, gbc);
+
+        gbc.gridy++;
+        lblStatus = new JLabel(" ");
+        lblStatus.setForeground(Color.RED);
+        add(lblStatus, gbc);
+
+        btnSubmit.addActionListener(e -> {
+            String username = txtUsername.getText().trim();
+            String password = new String(txtPassword.getPassword()).trim();
+            String confirmPwd = new String(txtConfirmPassword.getPassword()).trim();
+
+            if (username.isEmpty() || password.isEmpty() || confirmPwd.isEmpty()) {
+                lblStatus.setText("Please fill all fields.");
+                return;
+            }
+            if (!password.equals(confirmPwd)) {
+                lblStatus.setText("Passwords do not match.");
+                return;
+            }
+            boolean success = app.getUserManager().registerUser(username, password);
+            if (success) {
+                lblStatus.setForeground(new Color(0, 128, 0));
+                lblStatus.setText("Registration successful. You can now login.");
+            } else {
+                lblStatus.setForeground(Color.RED);
+                lblStatus.setText("Username already exists.");
+            }
+        });
+
+        btnBack.addActionListener(e -> {
+            lblStatus.setText(" ");
+            txtUsername.setText("");
+            txtPassword.setText("");
+            txtConfirmPassword.setText("");
+            app.showPanel("Login");
+        });
+    }
+}
