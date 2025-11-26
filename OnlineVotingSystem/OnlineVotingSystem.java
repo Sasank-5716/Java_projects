@@ -30,6 +30,26 @@ public class OnlineVotingSystem extends JFrame {
         cardLayout.show(mainPanel, "Login");
     }
 
+    public void showPanel(String name) {
+        cardLayout.show(mainPanel, name);
+    }
+
+    public UserManager getUserManager() {
+        return userManager;
+    }
+
+    public ElectionManager getElectionManager() {
+        return electionManager;
+    }
+
+    public void setCurrentUser(User user) {
+        currentUser = user;
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             OnlineVotingSystem app = new OnlineVotingSystem();
