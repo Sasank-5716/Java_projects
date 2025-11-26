@@ -193,3 +193,89 @@ class ElectionManager {
         return results;
     }
 }
+
+// Login UI panel
+class LoginPanel extends JPanel {
+    private OnlineVotingSystem app;
+
+    private JTextField txtUsername;
+    private JPasswordField txtPassword;
+    private JButton btnLogin, btnRegister;
+    private JLabel lblStatus;
+
+    public LoginPanel(OnlineVotingSystem app) {
+        this.app = app;
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        JLabel lblTitle = new JLabel("ONLINE VOTING SYSTEM");
+        lblTitle.setFont(new Font("Arial", Font.BOLD, 24));
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2;
+        gbc.insets = new Insets(10, 10, 20, 10);
+        add(lblTitle, gbc);
+
+        gbc.gridwidth = 1;
+        gbc.insets = new Insets(5, 10, 5, 10);
+
+        gbc.gridy++;
+        add(new JLabel("Username:"), gbc);
+        txtUsername = new JTextField(15);
+        gbc.gridx = 1;
+        add(txtUsername, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy++;
+        add(new JLabel("Password:"), gbc);
+        txtPassword = new JPasswordField(15);
+        gbc.gridx = 1;
+        add(txtPassword, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy++;
+        gbc.gridwidth = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
+
+        btnLogin = new JButton("Login");
+        btnRegister = new JButton("Register");
+        JPanel panelBtns = new JPanel();
+        panelBtns.add(btnLogin);
+        panelBtns.add(btnRegister);
+        add(panelBtns, gbc);
+
+        gbc.gridy++;
+        lblStatus = new JLabel(" ");
+        lblStatus.setForeground(Color.RED);
+        add(lblStatus, gbc);
+
+        btnLogin.addActionListener(e -> {
+            String username = txtUsername.getText().trim();
+            String password = new String(txtPassword.getPassword()).trim();
+            if (username.isEmpty() || password.isEmpty()) {
+                lblStatus.setText("Please enter username and password.");
+                return;
+            }
+            User user = app.getUserManager().authenticate(username, password);
+            if (user != null) {
+                app.setCurrentUser(user);
+                lblStatus.setText("Login successful!");
+                txtUsername.setText("");
+                txtPassword.setText("");
+                if (user.getRole() == Role.ADMIN) {
+                    app.showPanel("Admin");
+                } else {
+                    app.showPanel("Voter");
+                }
+            } else {
+                lblStatus.setText("Invalid username or password.");
+            }
+        });
+
+        btnRegister.addActionListener(e -> app.showPanel("Register"));
+    }
+
+    public void clearStatus() {
+        lblStatus.setText(" ");
+    }
+}
