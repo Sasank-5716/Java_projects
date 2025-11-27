@@ -575,6 +575,25 @@ class VoterPanel extends JPanel {
                     .clearStatus();
             app.showPanel("Login");
         });
+
+        candidateList.setCellRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index,
+                    boolean isSelected, boolean cellHasFocus) {
+                Component comp = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                String candidateName = (String) value;
+                if (candidateName.equals(votedCandidate)) {
+                    comp.setBackground(new Color(198, 239, 206));
+                    setBorder(BorderFactory.createLineBorder(new Color(56, 142, 60), 2));
+                    setIcon(UIManager.getIcon("OptionPane.informationIcon"));
+                } else {
+                    comp.setBackground(isSelected ? list.getSelectionBackground() : list.getBackground());
+                    setBorder(null);
+                    setIcon(null);
+                }
+                return comp;
+            }
+        });
     }
 
     public void refreshCandidates() {
