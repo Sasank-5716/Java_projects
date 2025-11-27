@@ -576,4 +576,22 @@ class VoterPanel extends JPanel {
             app.showPanel("Login");
         });
     }
+
+    public void refreshCandidates() {
+        User user = app.getCurrentUser();
+        lblWelcome.setText("Welcome " + user.getUsername() + " - Please cast your vote");
+        candidateListModel.clear();
+        votedCandidate = user.hasVoted() ? user.getVotedCandidate() : null;
+        if (app.getElectionManager().getCandidates().isEmpty()) {
+            candidateListModel.addElement("No candidates available");
+            btnVote.setEnabled(false);
+        } else {
+            for (Candidate c : app.getElectionManager().getCandidates()) {
+                candidateListModel.addElement(c.getName());
+            }
+            btnVote.setEnabled(!user.hasVoted());
+            lblStatus.setText(user.hasVoted() ? "You have already voted." : " ");
+        }
+        candidateList.repaint();
+    }
 }
