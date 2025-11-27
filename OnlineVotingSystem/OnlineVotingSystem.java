@@ -428,4 +428,42 @@ class AdminPanel extends JPanel {
         add(btnLogout, BorderLayout.EAST);
 
     }
+
+    private static class CandidateTableModel extends AbstractTableModel {
+        private java.util.List<Candidate> candidates = new ArrayList<>();
+        private final String[] columns = { "Candidate Name" };
+
+        public void refresh(Collection<Candidate> newCandidates) {
+            candidates = new ArrayList<>(newCandidates);
+            fireTableDataChanged();
+        }
+
+        @Override
+        public int getRowCount() {
+            return candidates.size();
+        }
+
+        @Override
+        public int getColumnCount() {
+            return columns.length;
+        }
+
+        @Override
+        public String getColumnName(int column) {
+            return columns[column];
+        }
+
+        @Override
+        public Object getValueAt(int rowIndex, int columnIndex) {
+            Candidate c = candidates.get(rowIndex);
+            if (columnIndex == 0)
+                return c.getName();
+            return null;
+        }
+
+        @Override
+        public boolean isCellEditable(int row, int col) {
+            return false;
+        }
+    }
 }
