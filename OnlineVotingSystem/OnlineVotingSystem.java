@@ -427,6 +427,42 @@ class AdminPanel extends JPanel {
         btnLogout = new JButton("Logout");
         add(btnLogout, BorderLayout.EAST);
 
+        btnAddCandidate.addActionListener(e -> {
+            String name = txtCandidateName.getText().trim();
+            if (!name.isEmpty()) {
+                app.getElectionManager().addCandidate(name);
+                candidateModel.refresh(app.getElectionManager().getCandidates());
+                txtCandidateName.setText("");
+                updateResults();
+            }
+        });
+
+        btnLogout.addActionListener(e -> {
+            app.setCurrentUser(null);
+            ((LoginPanel) Arrays.stream(app.mainPanel.getComponents())
+                    .filter(c -> c instanceof LoginPanel).findFirst().get())
+                    .clearStatus();
+            app.showPanel("Login");
+        });
+
+        refreshCandidates();
+        updateResults();
+
+    }
+
+    public void refreshCandidates() {
+        candidateModel.refresh(app.getElectionManager().getCandidates());
+    }
+
+    public void updateResults() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%-25s | Votes\n", "Candidate"));
+        sb.append("---------------------------|-------\n");
+        var results = app.getElectionManager().getResults();
+        for (var entry : results.entrySet()) {
+            sb.append(String.format("%-25s | %d\n", entry.getKey(), entry.getValue()));
+        }
+        txtResults.setText(sb.toString());
     }
 
     private static class CandidateTableModel extends AbstractTableModel {
