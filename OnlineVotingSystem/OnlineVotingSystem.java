@@ -545,6 +545,35 @@ class VoterPanel extends JPanel {
 
         add(panelSouth, BorderLayout.SOUTH);
 
+        btnVote.addActionListener(e -> {
+            User user = app.getCurrentUser();
+            if (user.hasVoted()) {
+                lblStatus.setForeground(Color.RED);
+                lblStatus.setText("You have already voted.");
+                return;
+            }
+            String selected = candidateList.getSelectedValue();
+            if (selected == null) {
+                lblStatus.setForeground(Color.RED);
+                lblStatus.setText("Please select a candidate to vote.");
+                return;
+            }
+            app.getElectionManager().vote(selected);
+            user.setVoted(true);
+            user.setVotedCandidate(selected);
+            votedCandidate = selected;
+            lblStatus.setForeground(new Color(0, 128, 0));
+            lblStatus.setText("Vote cast successfully for " + selected + ".");
+            btnVote.setEnabled(false);
+            candidateList.repaint();
+        });
 
+        btnLogout.addActionListener(e -> {
+            app.setCurrentUser(null);
+            ((LoginPanel) Arrays.stream(app.mainPanel.getComponents())
+                    .filter(c -> c instanceof LoginPanel).findFirst().get())
+                    .clearStatus();
+            app.showPanel("Login");
+        });
     }
 }
