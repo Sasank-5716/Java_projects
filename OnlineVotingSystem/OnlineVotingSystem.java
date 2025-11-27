@@ -503,3 +503,48 @@ class AdminPanel extends JPanel {
         }
     }
 }
+
+class VoterPanel extends JPanel {
+    private OnlineVotingSystem app;
+
+    private JLabel lblWelcome;
+    private DefaultListModel<String> candidateListModel;
+    private JList<String> candidateList;
+    private JButton btnVote, btnLogout;
+    private JLabel lblStatus;
+
+    private String votedCandidate = null;
+
+    public VoterPanel(OnlineVotingSystem app) {
+        this.app = app;
+        setLayout(new BorderLayout(10, 10));
+        setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        lblWelcome = new JLabel();
+        lblWelcome.setFont(new Font("Arial", Font.BOLD, 20));
+        add(lblWelcome, BorderLayout.NORTH);
+
+        candidateListModel = new DefaultListModel<>();
+        candidateList = new JList<>(candidateListModel);
+        candidateList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        candidateList.setFont(new Font("Arial", Font.PLAIN, 16));
+
+        JScrollPane scrollCandidates = new JScrollPane(candidateList);
+        scrollCandidates.setBorder(BorderFactory.createTitledBorder("Candidates"));
+        add(scrollCandidates, BorderLayout.CENTER);
+
+        JPanel panelSouth = new JPanel(new FlowLayout());
+        btnVote = new JButton("Vote");
+        btnLogout = new JButton("Logout");
+        panelSouth.add(btnVote);
+        panelSouth.add(btnLogout);
+
+        lblStatus = new JLabel(" ");
+        lblStatus.setForeground(Color.BLUE);
+        panelSouth.add(lblStatus);
+
+        add(panelSouth, BorderLayout.SOUTH);
+
+
+    }
+}
