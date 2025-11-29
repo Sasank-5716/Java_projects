@@ -8,11 +8,13 @@
 
 4. Library Management System
 
-5. Simple Banking Application
+5. Number Guessing Game
 
-6. Number Guessing Game
+6. Online Voting System
 
-7. TodoList Application
+7. Simple Banking Application
+
+8. TodoList Application
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
@@ -266,73 +268,7 @@ ________________________________________________________________________________
 ___________________________________________________________________________________________________________________________________________________
 
 
-
-# 5. 🏦 Simple Banking Application (Java)
-A straightforward Java application to manage basic banking operations such as account creation, deposits, withdrawals, and balance checks—all via a user-friendly interface.
-
-## ✨ Features
-Account Management: Create and manage multiple bank accounts.
-
-Deposit & Withdraw: Securely deposit or withdraw funds.
-
-Balance Inquiry: Instantly check account balances.
-
-Transaction History: View recent transactions for each account.
-
-Simple UI: Clean, intuitive Java Swing interface for easy navigation.
-
-## 🚀 Getting Started
-1. Clone Repo
-```bash
-git clone https://github.com/Sasank-5716/Java_projects
-```
-2. Compile
-```bash
-javac SimpleBankingApplication/SimpleBankingApplication.java
-
-```
-
-3. Run the program
-```bash
-java SimpleBankingApplication/SimpleBankingApplication
-```
-
-
-## 📝 Usage
-1. Create Account:
-Enter user details and open a new bank account.
-
-2. Deposit/Withdraw:
-Select an account, specify the amount, and perform the transaction.
-
-3. Check Balance:
-Instantly view the current balance of any account.
-
-4. View Transactions:
-See a list of recent deposits and withdrawals for each account.
-
-## 🖥️ Screenshots
-![Simple Banking Application](./Assets/BankingSystem1.png)
-
-![Simple Banking Application](./Assets/BankingSystem2.png)
-
-![Simple Banking Application](./Assets/BankingSystem3.png)
-
-![Simple Banking Application](./Assets/BankingSystem4.png)
-
-![Simple Banking Application](./Assets/BankingSystem5.png)
-
-
-Enjoy safe and simple banking! 💸
-
-
-
-___________________________________________________________________________________________________________________________________________________
-___________________________________________________________________________________________________________________________________________________
-
-
-
-# 6. Number Guessing Game (Java Swing)
+# 5. Number Guessing Game (Java Swing)
 A simple and interactive Number Guessing Game built with Java Swing. The game challenges players to guess a randomly generated number between 1 and 100, providing helpful feedback and a celebratory animation when the correct number is guessed.
 
 ## Features
@@ -400,13 +336,75 @@ java NumberGuessingGame/NumberGuessingGame
 - Enhance UI: Add more styling or features as desired.
 
 
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+# 6. Online Voting System
+
 
 ___________________________________________________________________________________________________________________________________________________
 ___________________________________________________________________________________________________________________________________________________
 
+# 7. 🏦 Simple Banking Application (Java)
+A straightforward Java application to manage basic banking operations such as account creation, deposits, withdrawals, and balance checks—all via a user-friendly interface.
+
+## ✨ Features
+Account Management: Create and manage multiple bank accounts.
+
+Deposit & Withdraw: Securely deposit or withdraw funds.
+
+Balance Inquiry: Instantly check account balances.
+
+Transaction History: View recent transactions for each account.
+
+Simple UI: Clean, intuitive Java Swing interface for easy navigation.
+
+## 🚀 Getting Started
+1. Clone Repo
+```bash
+git clone https://github.com/Sasank-5716/Java_projects
+```
+2. Compile
+```bash
+javac SimpleBankingApplication/SimpleBankingApplication.java
+
+```
+
+3. Run the program
+```bash
+java SimpleBankingApplication/SimpleBankingApplication
+```
 
 
-# 7. TodoList Application 📝✨ 
+## 📝 Usage
+1. Create Account:
+Enter user details and open a new bank account.
+
+2. Deposit/Withdraw:
+Select an account, specify the amount, and perform the transaction.
+
+3. Check Balance:
+Instantly view the current balance of any account.
+
+4. View Transactions:
+See a list of recent deposits and withdrawals for each account.
+
+## 🖥️ Screenshots
+![Simple Banking Application](./Assets/BankingSystem1.png)
+
+![Simple Banking Application](./Assets/BankingSystem2.png)
+
+![Simple Banking Application](./Assets/BankingSystem3.png)
+
+![Simple Banking Application](./Assets/BankingSystem4.png)
+
+![Simple Banking Application](./Assets/BankingSystem5.png)
+
+
+Enjoy safe and simple banking! 💸
+
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+# 8. TodoList Application 📝✨ 
 
 A visually appealing **Java Swing To-Do List application** that allows users to add, view, mark as completed, and remove tasks — all with a splash of fun emojis! Tasks are separated into **Pending** and **Completed** sections. This app showcases the use of Java collections, custom renderers, Swing components, and an intuitive graphic user interface.
 
