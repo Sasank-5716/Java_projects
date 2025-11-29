@@ -29,7 +29,7 @@ public class OnlineVotingSystem extends JFrame {
         // Initialize panels
         LoginPanel loginPanel = new LoginPanel(this);
         RegistrationPanel registrationPanel = new RegistrationPanel(this);
-        AdminPanel adminPanel = new AdminPanel(this);     
+        AdminPanel adminPanel = new AdminPanel(this);
         VoterPanel voterPanel = new VoterPanel(this);
 
         mainPanel.add(loginPanel, "Login");
@@ -42,6 +42,10 @@ public class OnlineVotingSystem extends JFrame {
     }
 
     public void showPanel(String name) {
+        if (name.equals("Voter")) {
+            ((VoterPanel) Arrays.stream(mainPanel.getComponents())
+                    .filter(c -> c instanceof VoterPanel).findFirst().get()).refreshCandidates();
+        }
         cardLayout.show(mainPanel, name);
     }
 
