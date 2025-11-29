@@ -5,7 +5,6 @@ import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.Arrays;
 
 public class OnlineVotingSystem extends JFrame {
     CardLayout cardLayout;
@@ -30,9 +29,13 @@ public class OnlineVotingSystem extends JFrame {
         // Initialize panels
         LoginPanel loginPanel = new LoginPanel(this);
         RegistrationPanel registrationPanel = new RegistrationPanel(this);
+        AdminPanel adminPanel = new AdminPanel(this);     
+        VoterPanel voterPanel = new VoterPanel(this);
 
         mainPanel.add(loginPanel, "Login");
         mainPanel.add(registrationPanel, "Register");
+        mainPanel.add(adminPanel, "Admin");
+        mainPanel.add(voterPanel, "Voter");
 
         add(mainPanel);
         cardLayout.show(mainPanel, "Login");
