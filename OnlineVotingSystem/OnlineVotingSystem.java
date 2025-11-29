@@ -5,6 +5,7 @@ import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.Arrays;
 
 public class OnlineVotingSystem extends JFrame {
     CardLayout cardLayout;
