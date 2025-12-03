@@ -35,5 +35,9 @@ public class WeatherInfoSystem extends JFrame {
         JPanel mainPanel = new JPanel(new BorderLayout(20, 20));
         mainPanel.setBackground(PURPLE_DARK);
         mainPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+
+        JLabel header = new JLabel(" Weather Dashboard", JLabel.CENTER);
+        header.setFont(new Font("Segoe UI", Font.BOLD, 28));
+        header.setForeground(Color.WHITE);
     }
 }
