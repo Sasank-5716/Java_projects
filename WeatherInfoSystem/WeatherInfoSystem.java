@@ -18,4 +18,9 @@ public class WeatherInfoSystem extends JFrame {
     private final Color PURPLE_LIGHT = new Color(218, 177, 218);
     private final Color PURPLE_DARK = new Color(75, 0, 130);
 
+    private final String[] CITIES = { "Kathmandu", "Pokhara", "Biratnagar", "Lalitpur", "Bhaktapur",
+            "London", "New York", "Tokyo", "Delhi", "Paris", "Dubai" };
+
+    private final String API_KEY = "API_KEY";
+
 }
