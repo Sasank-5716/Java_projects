@@ -23,4 +23,12 @@ public class WeatherInfoSystem extends JFrame {
 
     private final String API_KEY = "API_KEY";
 
+    public WeatherInfoSystem() {
+        setTitle("Weather Information System");
+        setSize(650, 550);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        initUI();
+    }
+
 }
