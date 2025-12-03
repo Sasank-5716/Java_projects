@@ -31,4 +31,9 @@ public class WeatherInfoSystem extends JFrame {
         initUI();
     }
 
+    private void initUI() {
+        JPanel mainPanel = new JPanel(new BorderLayout(20, 20));
+        mainPanel.setBackground(PURPLE_DARK);
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+    }
 }
