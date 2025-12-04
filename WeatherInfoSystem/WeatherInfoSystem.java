@@ -76,5 +76,12 @@ public class WeatherInfoSystem extends JFrame {
         gbc.gridy = 1;
         gbc.gridwidth = 2;
         inputPanel.add(fetchButton, gbc);
+
+        cityComboBox.addActionListener(e -> {
+            if (cityComboBox.getSelectedIndex() >= 0) {
+                String city = (String) cityComboBox.getSelectedItem();
+                fetchWeather(city, API_KEY);
+            }
+        });
     }
 }
