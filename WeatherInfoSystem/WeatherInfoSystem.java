@@ -62,5 +62,19 @@ public class WeatherInfoSystem extends JFrame {
         cityComboBox.setBorder(BorderFactory.createLineBorder(PURPLE_PRIMARY, 3));
         gbc.gridx = 1;
         inputPanel.add(cityComboBox, gbc);
+
+        fetchButton = new JButton(" Get Weather");
+        fetchButton.setBackground(Color.BLACK);
+        fetchButton.setForeground(Color.WHITE);
+        fetchButton.setFont(new Font("Segoe UI", Font.BOLD, 18));
+        fetchButton.setOpaque(true);
+        fetchButton.setBorderPainted(false);
+        fetchButton.setFocusPainted(false);
+        fetchButton.setBorder(BorderFactory.createEmptyBorder(15, 35, 15, 35));
+        fetchButton.addActionListener(new FetchWeatherListener());
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 2;
+        inputPanel.add(fetchButton, gbc);
     }
 }
