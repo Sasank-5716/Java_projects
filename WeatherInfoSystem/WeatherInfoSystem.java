@@ -83,5 +83,15 @@ public class WeatherInfoSystem extends JFrame {
                 fetchWeather(city, API_KEY);
             }
         });
+
+        weatherDisplay = new JTextArea();
+        weatherDisplay.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+        weatherDisplay.setEditable(false);
+        weatherDisplay.setBackground(PURPLE_LIGHT);
+        weatherDisplay.setForeground(PURPLE_DARK);
+        weatherDisplay.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(PURPLE_PRIMARY, 3),
+                BorderFactory.createEmptyBorder(30, 30, 30, 30)));
+        JScrollPane scrollPane = new JScrollPane(weatherDisplay);
     }
 }
