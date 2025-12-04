@@ -46,5 +46,21 @@ public class WeatherInfoSystem extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(20, 20, 20, 20);
         gbc.anchor = GridBagConstraints.CENTER;
+
+        JLabel cityLabel = new JLabel(" Select City:");
+        cityLabel.setForeground(Color.WHITE);
+        cityLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        inputPanel.add(cityLabel, gbc);
+
+        cityComboBox = new JComboBox<>(CITIES);
+        cityComboBox.setPreferredSize(new Dimension(250, 40));
+        cityComboBox.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+        cityComboBox.setBackground(PURPLE_LIGHT);
+        cityComboBox.setForeground(PURPLE_DARK);
+        cityComboBox.setBorder(BorderFactory.createLineBorder(PURPLE_PRIMARY, 3));
+        gbc.gridx = 1;
+        inputPanel.add(cityComboBox, gbc);
     }
 }
