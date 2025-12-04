@@ -93,5 +93,15 @@ public class WeatherInfoSystem extends JFrame {
                 BorderFactory.createLineBorder(PURPLE_PRIMARY, 3),
                 BorderFactory.createEmptyBorder(30, 30, 30, 30)));
         JScrollPane scrollPane = new JScrollPane(weatherDisplay);
+
+        mainPanel.add(header, BorderLayout.NORTH);
+        mainPanel.add(inputPanel, BorderLayout.CENTER);
+        mainPanel.add(scrollPane, BorderLayout.SOUTH);
+
+        add(mainPanel);
+        
+        // Initial instructions
+        weatherDisplay.setText("✅ Just select a city from dropdown or click Get Weather!\n🌐 API key handled automatically.\n👆 Try Kathmandu first (Nepal capital).");
+}
     }
 }
