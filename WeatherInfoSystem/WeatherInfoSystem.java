@@ -119,8 +119,14 @@ public class WeatherInfoSystem extends JFrame {
     new Thread(() -> {
         try {
             String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=metric";
+            URL url = new URL(urlString);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+
+            if (conn.getResponseCode() == 200) {
 
         }
-    }
+    }}
     );}
 }
