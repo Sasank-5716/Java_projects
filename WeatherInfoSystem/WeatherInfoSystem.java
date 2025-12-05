@@ -99,9 +99,17 @@ public class WeatherInfoSystem extends JFrame {
         mainPanel.add(scrollPane, BorderLayout.SOUTH);
 
         add(mainPanel);
-        
+
         // Initial instructions
-        weatherDisplay.setText("✅ Just select a city from dropdown or click Get Weather!\n🌐 API key handled automatically.\n👆 Try Kathmandu first (Nepal capital).");
-}
+        weatherDisplay.setText(
+                "✅ Just select a city from dropdown or click Get Weather!\n🌐 API key handled automatically.\n👆 Try Kathmandu first (Nepal capital).");
+    }
+
+    private class FetchWeatherListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String city = (String) cityComboBox.getSelectedItem();
+            fetchWeather(city, API_KEY);
+        }
     }
 }
