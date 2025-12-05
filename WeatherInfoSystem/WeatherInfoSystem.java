@@ -134,6 +134,12 @@ public class WeatherInfoSystem extends JFrame {
                 br.close();
 
                 String data = response.toString();
+                String name = extractValue(data, "\"name\"");
+                String temp = extractValueFromNested(data, "main", "temp");
+                String feels_like = extractValueFromNested(data, "main", "feels_like");
+                String humidity = extractValueFromNested(data, "main", "humidity");
+                String wind_speed = extractValueFromNested(data, "wind", "speed");
+                String description = extractValueFromArray(data, "weather", "description");
 
         }
     }}
