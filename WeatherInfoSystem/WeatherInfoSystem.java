@@ -141,6 +141,14 @@ public class WeatherInfoSystem extends JFrame {
                 String wind_speed = extractValueFromNested(data, "wind", "speed");
                 String description = extractValueFromArray(data, "weather", "description");
 
+                String weatherInfo = String.format(
+                    "🌍 Location: %s\n━━━━━━━━━━━━━━━━━━━\n🌡️ Temperature: %s °C\n😓 Feels Like: %s °C\n💧 Humidity: %s%%\n💨 Wind Speed: %s m/s\n☁️ Condition: %s",
+                    name, temp, feels_like, humidity, wind_speed, capitalize(description)
+                );
+
+                SwingUtilities.invokeLater(() -> weatherDisplay.setText(weatherInfo));
+            } else {
+
         }
     }}
     );}
