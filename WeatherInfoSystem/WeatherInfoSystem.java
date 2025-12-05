@@ -112,4 +112,15 @@ public class WeatherInfoSystem extends JFrame {
             fetchWeather(city, API_KEY);
         }
     }
+
+    private void fetchWeather(String city, String apiKey) {
+    SwingUtilities.invokeLater(() -> weatherDisplay.setText("🔄 Fetching weather for " + city + "..."));
+
+    new Thread(() -> {
+        try {
+            String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=metric";
+
+        }
+    }
+    );}
 }
