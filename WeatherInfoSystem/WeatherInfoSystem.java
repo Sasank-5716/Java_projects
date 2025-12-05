@@ -125,6 +125,15 @@ public class WeatherInfoSystem extends JFrame {
             conn.setRequestProperty("Accept", "application/json");
 
             if (conn.getResponseCode() == 200) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = br.readLine()) != null) {
+                    response.append(line);
+                }
+                br.close();
+
+                String data = response.toString();
 
         }
     }}
