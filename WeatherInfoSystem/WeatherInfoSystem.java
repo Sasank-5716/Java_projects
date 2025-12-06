@@ -114,52 +114,66 @@ public class WeatherInfoSystem extends JFrame {
     }
 
     private void fetchWeather(String city, String apiKey) {
-    SwingUtilities.invokeLater(() -> weatherDisplay.setText("🔄 Fetching weather for " + city + "..."));
+        SwingUtilities.invokeLater(() -> weatherDisplay.setText("🔄 Fetching weather for " + city + "..."));
 
-    new Thread(() -> {
-        try {
-            String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=metric";
-            URL url = new URL(urlString);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");
+        new Thread(() -> {
+            try {
+                String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey
+                        + "&units=metric";
+                URL url = new URL(urlString);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+                conn.setRequestProperty("Accept", "application/json");
 
-            if (conn.getResponseCode() == 200) {
-                BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                StringBuilder response = new StringBuilder();
-                String line;
-                while ((line = br.readLine()) != null) {
-                    response.append(line);
-                }
-                br.close();
-
-                String data = response.toString();
-                String name = extractValue(data, "\"name\"");
-                String temp = extractValueFromNested(data, "main", "temp");
-                String feels_like = extractValueFromNested(data, "main", "feels_like");
-                String humidity = extractValueFromNested(data, "main", "humidity");
-                String wind_speed = extractValueFromNested(data, "wind", "speed");
-                String description = extractValueFromArray(data, "weather", "description");
-
-                String weatherInfo = String.format(
-                    "🌍 Location: %s\n━━━━━━━━━━━━━━━━━━━\n🌡️ Temperature: %s °C\n😓 Feels Like: %s °C\n💧 Humidity: %s%%\n💨 Wind Speed: %s m/s\n☁️ Condition: %s",
-                    name, temp, feels_like, humidity, wind_speed, capitalize(description)
-                );
-
-                SwingUtilities.invokeLater(() -> weatherDisplay.setText(weatherInfo));
-            } else {
-                SwingUtilities.invokeLater(() -> {
-                    try {
-                        weatherDisplay.setText("❌ Error for " + city + " (Code: " + conn.getResponseCode() + ")\n\n✅ Make sure API key is valid in source code\n🔗 Replace 'YOUR_API_KEY_HERE' with real key");
-                    } catch (IOException ioEx) {
-                        weatherDisplay.setText("❌ Error for " + city + "\n\n✅ Check your internet connection and API key");
+                if (conn.getResponseCode() == 200) {
+                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    StringBuilder response = new StringBuilder();
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        response.append(line);
                     }
-                });
-            }
-            conn.disconnect();
-        } catch (Exception ex) {
-            SwingUtilities.invokeLater(() -> weatherDisplay.setText("🌐 Network error: " + ex.getMessage() + "\n\n✅ Check internet & API key in source code"));
-        }
-    }).start();
-    }};
+                    br.close();
 
+                    String data = response.toString();
+                    String name = extractValue(data, "\"name\"");
+                    String temp = extractValueFromNested(data, "main", "temp");
+                    String feels_like = extractValueFromNested(data, "main", "feels_like");
+                    String humidity = extractValueFromNested(data, "main", "humidity");
+                    String wind_speed = extractValueFromNested(data, "wind", "speed");
+                    String description = extractValueFromArray(data, "weather", "description");
+
+                    String weatherInfo = String.format(
+                            "🌍 Location: %s\n━━━━━━━━━━━━━━━━━━━\n🌡️ Temperature: %s °C\n😓 Feels Like: %s °C\n💧 Humidity: %s%%\n💨 Wind Speed: %s m/s\n☁️ Condition: %s",
+                            name, temp, feels_like, humidity, wind_speed, capitalize(description));
+
+                    SwingUtilities.invokeLater(() -> weatherDisplay.setText(weatherInfo));
+                } else {
+                    SwingUtilities.invokeLater(() -> {
+                        try {
+                            weatherDisplay.setText("❌ Error for " + city + " (Code: " + conn.getResponseCode()
+                                    + ")\n\n✅ Make sure API key is valid in source code\n🔗 Replace 'YOUR_API_KEY_HERE' with real key");
+                        } catch (IOException ioEx) {
+                            weatherDisplay.setText(
+                                    "❌ Error for " + city + "\n\n✅ Check your internet connection and API key");
+                        }
+                    });
+                }
+                conn.disconnect();
+            } catch (Exception ex) {
+                SwingUtilities.invokeLater(() -> weatherDisplay.setText(
+                        "🌐 Network error: " + ex.getMessage() + "\n\n✅ Check internet & API key in source code"));
+            }
+        }).start();
+    }
+
+    private String extractValue(String json, String key) {
+        int keyIndex = json.indexOf(key);
+        if (keyIndex == -1)
+            return "N/A";
+        int colonIndex = json.indexOf(":", keyIndex);
+        int commaIndex = json.indexOf(",", colonIndex);
+        int endIndex = commaIndex == -1 ? json.indexOf("}", colonIndex) : commaIndex;
+        String raw = json.substring(colonIndex + 1, endIndex).trim();
+        return cleanString(raw);
+    }
+};
