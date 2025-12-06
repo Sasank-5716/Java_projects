@@ -148,8 +148,18 @@ public class WeatherInfoSystem extends JFrame {
 
                 SwingUtilities.invokeLater(() -> weatherDisplay.setText(weatherInfo));
             } else {
-
+                SwingUtilities.invokeLater(() -> {
+                    try {
+                        weatherDisplay.setText("❌ Error for " + city + " (Code: " + conn.getResponseCode() + ")\n\n✅ Make sure API key is valid in source code\n🔗 Replace 'YOUR_API_KEY_HERE' with real key");
+                    } catch (IOException ioEx) {
+                        weatherDisplay.setText("❌ Error for " + city + "\n\n✅ Check your internet connection and API key");
+                    }
+                });
+            }
+            conn.disconnect();
+        } catch (Exception ex) {
+            SwingUtilities.invokeLater(() -> weatherDisplay.setText("🌐 Network error: " + ex.getMessage() + "\n\n✅ Check internet & API key in source code"));
         }
-    }}
-    );}
-}
+    }).start();
+    }};
+
