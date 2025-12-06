@@ -205,4 +205,10 @@ public class WeatherInfoSystem extends JFrame {
         raw = raw.replaceAll("\\[", "");
         return raw.trim();
     }
+
+    private String capitalize(String text) {
+        if (text == null || text.length() == 0)
+            return text;
+        return Character.toUpperCase(text.charAt(0)) + text.substring(1);
+    }
 };
