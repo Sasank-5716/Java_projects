@@ -108,7 +108,10 @@ public class WeatherInfoSystem extends JFrame {
 
         // Initial instructions
         weatherDisplay.setText(
-                " Just select a city from dropdown or click Get Weather!\n🌐 API key handled automatically.\n👆 Try Kathmandu first (Nepal capital).");
+                "✅ Just select a city from dropdown or click Get Weather!\n" +
+                "🌐 Set API_KEY environment variable for real data\n" +
+                "👆 Try Kathmandu first (Nepal capital)\n" +
+                "ℹ️ GitHub safe - no API key exposed!");
     }
 
     private class FetchWeatherListener implements ActionListener {
