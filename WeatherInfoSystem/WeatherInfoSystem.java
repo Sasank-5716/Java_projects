@@ -1,5 +1,3 @@
-package WeatherInfoSystem;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -29,6 +27,14 @@ public class WeatherInfoSystem extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         initUI();
+    }
+
+    private String getApiKey() {
+        String envKey = System.getenv("API_KEY");
+        if (envKey != null && !envKey.equals("API_KEY")) {
+            return envKey;
+        }
+        return "demo_key";
     }
 
     private void initUI() {
@@ -102,7 +108,7 @@ public class WeatherInfoSystem extends JFrame {
 
         // Initial instructions
         weatherDisplay.setText(
-                "✅ Just select a city from dropdown or click Get Weather!\n🌐 API key handled automatically.\n👆 Try Kathmandu first (Nepal capital).");
+                " Just select a city from dropdown or click Get Weather!\n🌐 API key handled automatically.\n👆 Try Kathmandu first (Nepal capital).");
     }
 
     private class FetchWeatherListener implements ActionListener {
@@ -121,6 +127,7 @@ public class WeatherInfoSystem extends JFrame {
                 String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey
                         + "&units=metric";
                 URL url = new URL(urlString);
+
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setRequestProperty("Accept", "application/json");
@@ -221,4 +228,4 @@ public class WeatherInfoSystem extends JFrame {
             new WeatherInfoSystem().setVisible(true);
         });
     }
-};
+}
