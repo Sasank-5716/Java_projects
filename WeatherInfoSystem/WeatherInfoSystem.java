@@ -211,4 +211,14 @@ public class WeatherInfoSystem extends JFrame {
             return text;
         return Character.toUpperCase(text.charAt(0)) + text.substring(1);
     }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (Exception ignored) {
+            }
+            new WeatherInfoSystem().setVisible(true);
+        });
+    }
 };
