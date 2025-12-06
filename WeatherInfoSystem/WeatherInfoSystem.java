@@ -176,4 +176,25 @@ public class WeatherInfoSystem extends JFrame {
         String raw = json.substring(colonIndex + 1, endIndex).trim();
         return cleanString(raw);
     }
+
+    private String extractValueFromNested(String json, String parentKey, String childKey) {
+        int parentIndex = json.indexOf(parentKey);
+        if (parentIndex == -1)
+            return "N/A";
+        int childIndex = json.indexOf(childKey, parentIndex);
+        if (childIndex == -1)
+            return "N/A";
+        return extractValue(json.substring(childIndex - 20), "\"" + childKey + "\"");
+    }
+
+    private String extractValueFromArray(String json, String arrayKey, String targetKey) {
+        int arrayIndex = json.indexOf(arrayKey);
+        if (arrayIndex == -1)
+            return "N/A";
+        int objStart = json.indexOf("{", arrayIndex);
+        int keyIndex = json.indexOf(targetKey, objStart);
+        if (keyIndex == -1)
+            return "N/A";
+        return extractValue(json.substring(keyIndex - 10), "\"" + targetKey + "\"");
+    }
 };
