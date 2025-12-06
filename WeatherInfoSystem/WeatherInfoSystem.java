@@ -197,4 +197,12 @@ public class WeatherInfoSystem extends JFrame {
             return "N/A";
         return extractValue(json.substring(keyIndex - 10), "\"" + targetKey + "\"");
     }
+
+    private String cleanString(String raw) {
+        raw = raw.replaceAll("\"", "");
+        raw = raw.replaceAll("}", "");
+        raw = raw.replaceAll("\\]", "");
+        raw = raw.replaceAll("\\[", "");
+        return raw.trim();
+    }
 };
