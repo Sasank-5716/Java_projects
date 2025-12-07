@@ -51,5 +51,11 @@ public class StudentManagementSystem {
             this.attendance = attendance;
         }
 
+        @Override
+        public String toString() {
+            return String.format("ID: %d | Name: %s | Grade: %s | Attendance: %.1f%%",
+                    id, name, grade, attendance);
+
+        }
     }
 }
