@@ -12,5 +12,12 @@ public class StudentManagementSystem {
         private String grade;
         private double attendance;
 
+        public Student(int id, String name, String grade, double attendance) {
+            this.id = id;
+            this.name = name;
+            this.grade = grade;
+            this.attendance = attendance;
+        }
     }
+
 }
