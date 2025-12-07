@@ -34,6 +34,22 @@ public class StudentManagementSystem {
         public void setName(String name) {
             this.name = name;
         }
-    }
 
+        public String getGrade() {
+            return grade;
+        }
+
+        public void setGrade(String grade) {
+            this.grade = grade;
+        }
+
+        public double getAttendance() {
+            return attendance;
+        }
+
+        public void setAttendance(double attendance) {
+            this.attendance = attendance;
+        }
+
+    }
 }
