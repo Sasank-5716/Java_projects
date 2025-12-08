@@ -115,6 +115,55 @@ public class StudentManagementSystem {
             students.forEach(System.out::println);
             System.out.println("Total students: " + students.size());
         }
+
+        public void updateStudent(Scanner scanner) {
+            System.out.print("Enter student ID to update: ");
+            String idStr = scanner.nextLine().trim();
+            int id;
+            try {
+                id = Integer.parseInt(idStr);
+            } catch (NumberFormatException e) {
+                System.out.println("❌ Invalid ID format!");
+                return;
+            }
+
+            Student student = findById(id);
+            if (student == null) {
+                System.out.println("❌ Student not found!");
+                return;
+            }
+
+            System.out.print("New name (Enter to skip): ");
+            String name = scanner.nextLine();
+            if (!name.trim().isEmpty())
+                student.setName(name.trim());
+
+            System.out.print("New grade (Enter to skip): ");
+            String grade = scanner.nextLine();
+            if (!grade.trim().isEmpty())
+                student.setGrade(grade.trim());
+
+            System.out.print("New attendance % (Enter to skip, e.g. 83 or 83%): ");
+            String attStr = scanner.nextLine().trim();
+            if (!attStr.isEmpty()) {
+                try {
+                    if (attStr.endsWith("%")) {
+                        attStr = attStr.substring(0, attStr.length() - 1).trim();
+                    }
+                    double attendance = Double.parseDouble(attStr);
+                    if (attendance >= 0 && attendance <= 100) {
+                        student.setAttendance(attendance);
+                    } else {
+                        System.out.println("❌ Attendance must be 0-100%. Skipped.");
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("❌ Invalid attendance format. Skipped.");
+                }
+            }
+            System.out.println("✓ Student updated successfully!");
+        }
+        
+
     }
 
 }
