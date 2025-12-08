@@ -105,6 +105,16 @@ public class StudentManagementSystem {
             students.add(new Student(nextId++, name, grade, attendance));
             System.out.println("✓ Student registered successfully! (ID: " + (nextId - 1) + ")");
         }
+
+        public void viewAllStudents() {
+            if (students.isEmpty()) {
+                System.out.println("No students registered yet.");
+                return;
+            }
+            System.out.println("\n=== ALL STUDENTS ===");
+            students.forEach(System.out::println);
+            System.out.println("Total students: " + students.size());
+        }
     }
 
 }
