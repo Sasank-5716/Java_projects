@@ -67,5 +67,10 @@ public class StudentManagementSystem {
             Student student = (Student) o;
             return id == student.id;
         }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(id);
+        }
     }
 }
