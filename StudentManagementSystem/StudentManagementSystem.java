@@ -73,4 +73,9 @@ public class StudentManagementSystem {
             return Objects.hash(id);
         }
     }
+
+    static class StudentManagement {
+        private List<Student> students = new ArrayList<>();
+        private int nextId = 1;
+    }
 }
