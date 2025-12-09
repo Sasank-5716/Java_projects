@@ -203,4 +203,13 @@ public class StudentManagementSystem {
 
     }
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        StudentManagement manager = new StudentManagement();
+
+        System.out.println("🎓 STUDENT MANAGEMENT SYSTEM");
+        System.out.println("============================");
+
+    }
+
 }
