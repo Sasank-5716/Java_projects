@@ -210,6 +210,40 @@ public class StudentManagementSystem {
         System.out.println("🎓 STUDENT MANAGEMENT SYSTEM");
         System.out.println("============================");
 
+        while (true) {
+            System.out.println("\n📋 MENU:");
+            System.out.println("1. ➕ Register New Student");
+            System.out.println("2. 👥 View All Students");
+            System.out.println("3. ✏️  Update Student");
+            System.out.println("4. 🗑️  Delete Student");
+            System.out.println("5. 🔍 Search Student");
+            System.out.println("6. 🚪 Exit");
+            System.out.print("Choose option: ");
+
+            String choiceStr = scanner.nextLine().trim();
+            int choice;
+            try {
+                choice = Integer.parseInt(choiceStr);
+            } catch (NumberFormatException e) {
+                System.out.println("❌ Invalid input! Please enter a number.");
+                continue;
+            }
+
+            switch (choice) {
+                case 1 -> manager.addStudent(scanner);
+                case 2 -> manager.viewAllStudents();
+                case 3 -> manager.updateStudent(scanner);
+                case 4 -> manager.deleteStudent(scanner);
+                case 5 -> manager.searchStudent(scanner);
+                case 6 -> {
+                    System.out.println("👋 Thank you for using Student Management System!");
+                    scanner.close();
+                    return;
+                }
+                default -> System.out.println("❌ Invalid option! Try 1-6.");
+            }
+        }
+
     }
 
 }
