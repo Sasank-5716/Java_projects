@@ -181,6 +181,22 @@ public class StudentManagementSystem {
             }
         }
 
+        public void searchStudent(Scanner scanner) {
+            System.out.print("Enter student name to search: ");
+            String name = scanner.nextLine();
+
+            List<Student> matches = students.stream()
+                    .filter(s -> s.getName().toLowerCase().contains(name.toLowerCase()))
+                    .toList();
+
+            if (matches.isEmpty()) {
+                System.out.println("❌ No students found with that name.");
+            } else {
+                System.out.println("\n=== SEARCH RESULTS ===");
+                matches.forEach(System.out::println);
+            }
+        }
+
     }
 
 }
