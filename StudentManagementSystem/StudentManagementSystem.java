@@ -162,7 +162,24 @@ public class StudentManagementSystem {
             }
             System.out.println("✓ Student updated successfully!");
         }
-        
+
+        public void deleteStudent(Scanner scanner) {
+            System.out.print("Enter student ID to delete: ");
+            String idStr = scanner.nextLine().trim();
+            int id;
+            try {
+                id = Integer.parseInt(idStr);
+            } catch (NumberFormatException e) {
+                System.out.println("❌ Invalid ID format!");
+                return;
+            }
+
+            if (students.removeIf(s -> s.getId() == id)) {
+                System.out.println("✓ Student deleted successfully!");
+            } else {
+                System.out.println("❌ Student not found!");
+            }
+        }
 
     }
 
