@@ -197,6 +197,10 @@ public class StudentManagementSystem {
             }
         }
 
+        private Student findById(int id) {
+            return students.stream().filter(s -> s.getId() == id).findFirst().orElse(null);
+        }
+
     }
 
 }
