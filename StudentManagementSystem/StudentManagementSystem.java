@@ -203,14 +203,4 @@ public class StudentManagementSystem {
 
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        StudentManagement manager = new StudentManagement();
-
-        // --- Commit 19: Print welcome and menu header ---
-        System.out.println("🎓 STUDENT MANAGEMENT SYSTEM");
-        System.out.println("============================");
-
-    }
-
 }
