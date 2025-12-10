@@ -511,6 +511,15 @@ ________________________________________________________________________________
 
 A console-based Java application for managing student records with CRUD operations (Create, Read, Update, Delete) and search functionality. Built with object-oriented design using inner classes for clean separation of concerns.
 
+## 🖥️ Screenshots
+
+![Student Management System](./Assets/StudentManagementSystem01.png)
+
+![Student Management System](./Assets/StudentManagementSystem02.png)
+
+![Student Management System](./Assets/StudentManagementSystem03.png)
+
+
 ## Features
 
   - Register students with auto-generated ID, name, grade, and attendance percentage
