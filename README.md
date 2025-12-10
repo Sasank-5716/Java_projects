@@ -509,6 +509,82 @@ ________________________________________________________________________________
 
 # 8. Student Management System
 
+A console-based Java application for managing student records with CRUD operations (Create, Read, Update, Delete) and search functionality. Built with object-oriented design using inner classes for clean separation of concerns.
+
+## Features
+
+  - Register students with auto-generated ID, name, grade, and attendance percentage
+
+  - View all students with formatted table output
+
+  - Update student details selectively (name, grade, attendance)
+
+  - Delete students by ID
+
+  - Search students by name (case-insensitive partial matching)
+
+  - Robust input validation for attendance (handles % symbol, ranges 0-100)
+
+  - Error handling for invalid inputs with user-friendly messages
+
+## Tech Stack
+
+  - Java SE (Scanner, ArrayList, Streams)
+
+  - Object-Oriented Programming (Encapsulation, equals/hashCode overrides)
+
+## Prerequisites
+
+  - Java 8+ installed
+
+  - IDE (IntelliJ IDEA, Eclipse) or terminal with javac/java
+
+## Installation & Setup
+
+  1. Clone or create the project directory
+
+  2. Save code as StudentManagementSystem.java
+
+  3. Compile: javac StudentManagementSystem.java
+
+  4. Run: java StudentManagementSystem.java
+
+## Usage
+
+🎓 STUDENT MANAGEMENT SYSTEM
+============================
+
+📋 MENU:
+1. ➕ Register New Student
+2. 👥 View All Students
+3. ✏️  Update Student
+4. 🗑️  Delete Student
+5. 🔍 Search Student
+6. 🚪 Exit
+Choose option:
+
+### Example inputs:
+
+  - Attendance: 85 or 85%
+
+  - Search: Type partial name like john to find "John Doe"
+
+### Sample Output
+
+=== ALL STUDENTS ===
+ID: 1 | Name: John Doe | Grade: A | Attendance: 92.5%
+ID: 2 | Name: Jane Smith | Grade: B | Attendance: 87.0%
+Total students: 2
+
+## Development Notes
+
+  - Data persistence: In-memory only (ArrayList). Add file/DB for persistence.
+
+  - Extensibility: Easy to add sorting, export CSV, or GUI (Swing/JavaFX).
+
+  - Security: Input sanitized for basic attacks; production needs more validation.
+
+  - Testing: Add JUnit tests for Student equality and management methods.
 
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
