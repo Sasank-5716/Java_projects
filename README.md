@@ -14,7 +14,11 @@
 
 7. Simple Banking Application
 
-8. TodoList Application
+8. Student Management System
+
+9. TodoList Application
+
+10. WeatherInfoSystem
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
@@ -503,7 +507,14 @@ Enjoy safe and simple banking! 💸
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-# 8. TodoList Application 📝✨ 
+# 8. Student Management System
+
+
+
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+# 9. TodoList Application 📝✨ 
 
 A visually appealing **Java Swing To-Do List application** that allows users to add, view, mark as completed, and remove tasks — all with a splash of fun emojis! Tasks are separated into **Pending** and **Completed** sections. This app showcases the use of Java collections, custom renderers, Swing components, and an intuitive graphic user interface.
 
@@ -566,6 +577,11 @@ java TodoListApp
   Uncheck a task in the Completed list to send it back to Pending.
 - **Deleting a Task** 🗑️  
   Select and click `Remove Selected` **or** press Delete on your keyboard.
+
+
+  __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+  # 10. Weather Information System
 
 
 
