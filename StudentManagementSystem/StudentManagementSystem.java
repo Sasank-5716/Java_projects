@@ -94,11 +94,11 @@ public class StudentManagementSystem {
                 }
                 attendance = Double.parseDouble(attStr);
                 if (attendance < 0 || attendance > 100) {
-                    System.out.println("❌ Attendance must be 0-100%. Using 0.");
+                    System.out.println(" Attendance must be 0-100%. Using 0.");
                     attendance = 0;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("❌ Invalid attendance format. Using 0%.");
+                System.out.println(" Invalid attendance format. Using 0%.");
                 attendance = 0;
             }
 
@@ -123,13 +123,13 @@ public class StudentManagementSystem {
             try {
                 id = Integer.parseInt(idStr);
             } catch (NumberFormatException e) {
-                System.out.println("❌ Invalid ID format!");
+                System.out.println(" Invalid ID format!");
                 return;
             }
 
             Student student = findById(id);
             if (student == null) {
-                System.out.println("❌ Student not found!");
+                System.out.println(" Student not found!");
                 return;
             }
 
@@ -154,10 +154,10 @@ public class StudentManagementSystem {
                     if (attendance >= 0 && attendance <= 100) {
                         student.setAttendance(attendance);
                     } else {
-                        System.out.println("❌ Attendance must be 0-100%. Skipped.");
+                        System.out.println(" Attendance must be 0-100%. Skipped.");
                     }
                 } catch (NumberFormatException e) {
-                    System.out.println("❌ Invalid attendance format. Skipped.");
+                    System.out.println(" Invalid attendance format. Skipped.");
                 }
             }
             System.out.println("✓ Student updated successfully!");
@@ -170,14 +170,14 @@ public class StudentManagementSystem {
             try {
                 id = Integer.parseInt(idStr);
             } catch (NumberFormatException e) {
-                System.out.println("❌ Invalid ID format!");
+                System.out.println(" Invalid ID format!");
                 return;
             }
 
             if (students.removeIf(s -> s.getId() == id)) {
                 System.out.println("✓ Student deleted successfully!");
             } else {
-                System.out.println("❌ Student not found!");
+                System.out.println(" Student not found!");
             }
         }
 
@@ -190,7 +190,7 @@ public class StudentManagementSystem {
                     .toList();
 
             if (matches.isEmpty()) {
-                System.out.println("❌ No students found with that name.");
+                System.out.println(" No students found with that name.");
             } else {
                 System.out.println("\n=== SEARCH RESULTS ===");
                 matches.forEach(System.out::println);
@@ -207,17 +207,17 @@ public class StudentManagementSystem {
         Scanner scanner = new Scanner(System.in);
         StudentManagement manager = new StudentManagement();
 
-        System.out.println("🎓 STUDENT MANAGEMENT SYSTEM");
+        System.out.println("STUDENT MANAGEMENT SYSTEM");
         System.out.println("============================");
 
         while (true) {
-            System.out.println("\n📋 MENU:");
-            System.out.println("1. ➕ Register New Student");
-            System.out.println("2. 👥 View All Students");
-            System.out.println("3. ✏️  Update Student");
-            System.out.println("4. 🗑️  Delete Student");
-            System.out.println("5. 🔍 Search Student");
-            System.out.println("6. 🚪 Exit");
+            System.out.println("\n MENU:");
+            System.out.println("1. Register New Student");
+            System.out.println("2. View All Students");
+            System.out.println("3. Update Student");
+            System.out.println("4. Delete Student");
+            System.out.println("5. Search Student");
+            System.out.println("6. Exit");
             System.out.print("Choose option: ");
 
             String choiceStr = scanner.nextLine().trim();
@@ -225,7 +225,7 @@ public class StudentManagementSystem {
             try {
                 choice = Integer.parseInt(choiceStr);
             } catch (NumberFormatException e) {
-                System.out.println("❌ Invalid input! Please enter a number.");
+                System.out.println(" Invalid input! Please enter a number.");
                 continue;
             }
 
@@ -236,11 +236,11 @@ public class StudentManagementSystem {
                 case 4 -> manager.deleteStudent(scanner);
                 case 5 -> manager.searchStudent(scanner);
                 case 6 -> {
-                    System.out.println("👋 Thank you for using Student Management System!");
+                    System.out.println(" Thank you for using Student Management System!");
                     scanner.close();
                     return;
                 }
-                default -> System.out.println("❌ Invalid option! Try 1-6.");
+                default -> System.out.println(" Invalid option! Try 1-6.");
             }
         }
 
