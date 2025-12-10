@@ -103,7 +103,7 @@ public class StudentManagementSystem {
             }
 
             students.add(new Student(nextId++, name, grade, attendance));
-            System.out.println("✓ Student registered successfully! (ID: " + (nextId - 1) + ")");
+            System.out.println(" Student registered successfully! (ID: " + (nextId - 1) + ")");
         }
 
         public void viewAllStudents() {
@@ -160,7 +160,7 @@ public class StudentManagementSystem {
                     System.out.println(" Invalid attendance format. Skipped.");
                 }
             }
-            System.out.println("✓ Student updated successfully!");
+            System.out.println(" Student updated successfully!");
         }
 
         public void deleteStudent(Scanner scanner) {
@@ -175,7 +175,7 @@ public class StudentManagementSystem {
             }
 
             if (students.removeIf(s -> s.getId() == id)) {
-                System.out.println("✓ Student deleted successfully!");
+                System.out.println(" Student deleted successfully!");
             } else {
                 System.out.println(" Student not found!");
             }
